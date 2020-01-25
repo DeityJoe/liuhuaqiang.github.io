@@ -416,7 +416,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        4 分
                     </div>
                     
                 
@@ -497,7 +497,10 @@ git config --global users.email &quot;xxxxx&quot;</code></pre><h3 id="用-git-co
 <span class="token function">git</span> config --global http.https://github.com.proxy socks5://127.0.0.1:1080
 <span class="token function">git</span> config --global https.https://github.com.proxy socks5://127.0.0.1:1080
 
-代理后git clone速度真的快了很多~我这边能到1MB/s以上<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+代理后git clone速度真的快了很多~我这边能到1MB/s以上
+
+使用以下命令查看是否配置好
+<span class="token function">git</span> config --global -e<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>保存密码<br>git 每次push和pull都需要提交密码<br>每次从远程仓库拉代码或者向远程仓库提交代码的时候需要输入密码的解决方法<br>执行  </p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> config --global credential.helper store<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
