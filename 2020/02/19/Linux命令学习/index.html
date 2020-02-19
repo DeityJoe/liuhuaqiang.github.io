@@ -414,14 +414,14 @@ ps -e|grep">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        444
+                        630
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        2 分
                     </div>
                     
                 
@@ -474,7 +474,35 @@ ps -e|grep">
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>Desktop Entry<span class="token punctuation">]</span>
 Type<span class="token operator">=</span>Application
 Exec<span class="token operator">=</span>/home/lhq/start.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="PS-再用sudo-chmod-x-start-desktop权限和start-sh的权限即可"><a href="#PS-再用sudo-chmod-x-start-desktop权限和start-sh的权限即可" class="headerlink" title="PS:再用sudo chmod +x start.desktop权限和start.sh的权限即可"></a>PS:再用sudo chmod +x start.desktop权限和start.sh的权限即可</h2>
+<h2 id="PS-再用sudo-chmod-x-start-desktop权限和start-sh的权限即可"><a href="#PS-再用sudo-chmod-x-start-desktop权限和start-sh的权限即可" class="headerlink" title="PS:再用sudo chmod +x start.desktop权限和start.sh的权限即可"></a>PS:再用sudo chmod +x start.desktop权限和start.sh的权限即可</h2><h1 id="deepin-linux-打开ssh服务"><a href="#deepin-linux-打开ssh服务" class="headerlink" title="deepin linux 打开ssh服务"></a>deepin linux 打开ssh服务</h1><pre><code>首先，更新一下软件源，打开&quot;终端窗口&quot;，输入&quot;sudo apt-get update&quot;--&gt;回车--&gt;&quot;
+
+输入当前登录用户的管理员密码&quot;--&gt;回车,就可以了。
+
+
+
+然后，在终端中，输入&quot;sudo apt-get install openssh-server&quot;--&gt;回车--&gt;输入&quot;y&quot;--
+
+回车--&gt;安装完成即可。
+
+安装完成，验证一下是否安装成功，执行如下命令查看一下sshd的进程　
+
+sudo ps -e |grep ssh
+
+确认说明ssh服务已经启动。
+
+
+
+也可以查看sshd服务的端口号，默认端口号为22
+
+netstat -an|head -5
+
+
+
+确认网络已经打开
+
+能访问互联网即可
+
+随后可以使用winscp远程登录</code></pre>
             </div>
             <hr/>
 
@@ -1124,7 +1152,7 @@ anaconda安装 anaconda包含了所有的python环境下载安装即可，一直
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">6.8k</span>
+                <span class="white-color">7k</span>
             
 
             
