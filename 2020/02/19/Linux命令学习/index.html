@@ -4,9 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="mysql数据库基本操作学习记录, 未闻丶死讯的博客">
-    <meta name="description" content="安装MySQL安装mysql很简单，这里不多赘述了，网上很多教程。mysql下载地址图形界面工具(gitee)图形界面工具(github)视频教程文章
-开启mysqlwin+R开启：net start mysql关闭：net stop my">
+    <meta name="keywords" content="Linux命令学习, 未闻丶死讯的博客">
+    <meta name="description" content="后台运行命令nohup 命令 &amp;amp;
+如:nohup python test.py &amp;amp;
+
+可用ps -e查看   具体看哪个运行可以这么写 
+ps -e|grep xxxx
+如我想看后台的python命令：
+ps -e|grep">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>mysql数据库基本操作学习记录 | 未闻丶死讯的博客</title>
+    <title>Linux命令学习 | 未闻丶死讯的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -293,13 +298,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        mysql数据库基本操作学习记录
+                        Linux命令学习
                     </div>
                 </div>
             </div>
@@ -402,14 +407,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-31
+                    2020-02-19
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        357
+                        444
                     </div>
                     
 
@@ -432,39 +437,44 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h1><p>安装mysql很简单，这里不多赘述了，网上很多教程。<br><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">mysql下载地址</a><br><a href="https://gitee.com/anlen123/wenjian/blob/master/HeidiSQL_10.3_64_Portable.zip" target="_blank" rel="noopener">图形界面工具(gitee)</a><br><a href="https://github.com/anlen123/wenjian/blob/master/HeidiSQL_10.3_64_Portable.zip" target="_blank" rel="noopener">图形界面工具(github)</a><br><a href="https://www.bilibili.com/video/av48488984/" target="_blank" rel="noopener">视频教程</a><br><a href="https://blog.jkdev.cn/index.php/archives/176/" target="_blank" rel="noopener">文章</a></p>
-<h1 id="开启mysql"><a href="#开启mysql" class="headerlink" title="开启mysql"></a>开启mysql</h1><p>win+R<br>开启：net start mysql<br>关闭：net stop mysql</p>
-<h1 id="mysql一些简单操作"><a href="#mysql一些简单操作" class="headerlink" title="mysql一些简单操作"></a>mysql一些简单操作</h1><h2 id="显示当前数据库-show-databases"><a href="#显示当前数据库-show-databases" class="headerlink" title="显示当前数据库 show databases;"></a>显示当前数据库 show databases;</h2><p><img src="/2019/12/31/mysql数据库基本操作学习记录/1.jpg" alt></p>
-<h2 id="使用一个数据库-use-test"><a href="#使用一个数据库-use-test" class="headerlink" title="使用一个数据库 use test;"></a>使用一个数据库 use test;</h2><p><img src="/2019/12/31/mysql数据库基本操作学习记录/2.jpg" alt></p>
-<h2 id="重命名"><a href="#重命名" class="headerlink" title="重命名"></a>重命名</h2><p>– 修改表名<br>rename table old_table to new_table;</p>
-<p>– 或者<br>alter table old_table rename as new_table;</p>
-<p>– 修改列名称<br>alter table table_name<br>change column old_name new_name varchar(255);</p>
-<p>– 修改字段类型<br>alter table table_name<br>modify column column_name varchar(255) default ‘’ COMMENT ‘注释’;</p>
-<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><p>insert into score (name,score) values(‘小明’,’80’);</p>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>drop table tb;<br>drop 是直接将表格删除，无法找回。例如删除 user 表：<br>drop table user;<br>truncate （table） tb;<br>truncate 是删除表中所有数据，但不能与where一起使用；<br>TRUNCATE TABLE user;<br>delete from tb (where);<br>delete 也是删除表中数据，但可以与where连用，删除特定行；<br>— 删除表中所有数据<br>delete from user;<br>— 删除指定行<br>delete from user where username =’Tom’;</p>
-<p>delete from score where score = 80;</p>
-<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>select * from score  where name like ‘%刘%’; </p>
-<h2 id="python-连接mysql"><a href="#python-连接mysql" class="headerlink" title="python 连接mysql"></a>python 连接mysql</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> pymysql
-<span class="token comment" spellcheck="true">#创建连接</span>
-db <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>db<span class="token operator">=</span><span class="token string">'test'</span><span class="token punctuation">,</span> user<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">,</span> password<span class="token operator">=</span><span class="token string">'123456'</span><span class="token punctuation">,</span> host<span class="token operator">=</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>charset<span class="token operator">=</span><span class="token string">'utf8'</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#创建浮标</span>
-cursor <span class="token operator">=</span> db<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># sql = "DELETE FROM `test`.`score` WHERE  `name`='杨川' AND `score`=100 LIMIT 1;"</span>
-<span class="token keyword">try</span> <span class="token punctuation">:</span>
-    sql <span class="token operator">=</span> <span class="token string">"select * from score"</span>
-    cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
-    txt  <span class="token operator">=</span> cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> len<span class="token punctuation">(</span>txt<span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>txt<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">for</span> info <span class="token keyword">in</span> txt <span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span>
-<span class="token keyword">except</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"操作失败"</span><span class="token punctuation">)</span>
-cursor<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
-db<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>PS :以后一些操作会记录。<br>23333</p>
+                <h1 id="后台运行命令"><a href="#后台运行命令" class="headerlink" title="后台运行命令"></a>后台运行命令</h1><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">nohup</span> 命令 <span class="token operator">&amp;</span>
+如:nohup python test.py <span class="token operator">&amp;</span>
 
+可用ps -e查看   具体看哪个运行可以这么写 
+<span class="token function">ps</span> -e<span class="token operator">|</span><span class="token function">grep</span> xxxx
+如我想看后台的python命令：
+<span class="token function">ps</span> -e<span class="token operator">|</span><span class="token function">grep</span> python
+
+杀死后台为
+<span class="token function">kill</span> + pid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="定时命令"><a href="#定时命令" class="headerlink" title="定时命令"></a>定时命令</h1><p>crontab -e 就可打开</p>
+<pre><code>*    *    *    *    *
+-    -    -    -    -
+|    |    |    |    |
+|    |    |    |    +----- 星期中星期几 (0 - 7) (星期天 为0)
+|    |    |    +---------- 月份 (1 - 12) 
+|    |    +--------------- 一个月中的第几天 (1 - 31)
+|    +-------------------- 小时 (0 - 23)
++------------------------- 分钟 (0 - 59)</code></pre><p>实例</p>
+<h2 id="每月每天每小时的第-0-分钟执行一次-bin-ls"><a href="#每月每天每小时的第-0-分钟执行一次-bin-ls" class="headerlink" title="每月每天每小时的第 0 分钟执行一次 /bin/ls"></a>每月每天每小时的第 0 分钟执行一次 /bin/ls</h2><pre class="line-numbers language-bash"><code class="language-bash">0 * * * * /bin/ls<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="在-12-月内-每天的早上-6-点到-12-点，每隔-3-个小时-0-分钟执行一次-usr-bin-backup"><a href="#在-12-月内-每天的早上-6-点到-12-点，每隔-3-个小时-0-分钟执行一次-usr-bin-backup" class="headerlink" title="在 12 月内, 每天的早上 6 点到 12 点，每隔 3 个小时 0 分钟执行一次 /usr/bin/backup"></a>在 12 月内, 每天的早上 6 点到 12 点，每隔 3 个小时 0 分钟执行一次 /usr/bin/backup</h2><pre class="line-numbers language-bash"><code class="language-bash">0 6-12/3 * 12 * /usr/bin/backup<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="周一到周五每天下午-5-00-寄一封信给-alex-domain-name"><a href="#周一到周五每天下午-5-00-寄一封信给-alex-domain-name" class="headerlink" title="周一到周五每天下午 5:00 寄一封信给 alex@domain.name"></a>周一到周五每天下午 5:00 寄一封信给 <a href="mailto:alex@domain.name" target="_blank" rel="noopener">alex@domain.name</a></h2><pre class="line-numbers language-bash"><code class="language-bash">0 17 * * 1-5 mail -s <span class="token string">"hi"</span> alex@domain.name <span class="token operator">&lt;</span> /tmp/maildata<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="每月每天的午夜-0-点-20-分-2-点-20-分-4-点-20-分…-执行-echo-“haha”"><a href="#每月每天的午夜-0-点-20-分-2-点-20-分-4-点-20-分…-执行-echo-“haha”" class="headerlink" title="每月每天的午夜 0 点 20 分, 2 点 20 分, 4 点 20 分….执行 echo “haha”"></a>每月每天的午夜 0 点 20 分, 2 点 20 分, 4 点 20 分….执行 echo “haha”</h2><pre class="line-numbers language-bash"><code class="language-bash">20 0-23/2 * * * <span class="token keyword">echo</span> <span class="token string">"haha"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="意思是每两个小时重启一次apache"><a href="#意思是每两个小时重启一次apache" class="headerlink" title="意思是每两个小时重启一次apache"></a>意思是每两个小时重启一次apache</h2><pre class="line-numbers language-bash"><code class="language-bash">0 */2 * * * /sbin/service httpd restart <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="意思是每天7：50开启ssh服务"><a href="#意思是每天7：50开启ssh服务" class="headerlink" title="意思是每天7：50开启ssh服务"></a>意思是每天7：50开启ssh服务</h2><pre class="line-numbers language-bash"><code class="language-bash">50 7 * * * /sbin/service sshd start   <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="意思是每天22：50关闭ssh服务"><a href="#意思是每天22：50关闭ssh服务" class="headerlink" title="意思是每天22：50关闭ssh服务"></a>意思是每天22：50关闭ssh服务</h2><pre class="line-numbers language-bash"><code class="language-bash">50 22 * * * /sbin/service sshd stop  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="每月1号和15号检查-home-磁盘"><a href="#每月1号和15号检查-home-磁盘" class="headerlink" title="每月1号和15号检查/home 磁盘"></a>每月1号和15号检查/home 磁盘</h2><pre class="line-numbers language-bash"><code class="language-bash">0 0 1,15 * * <span class="token function">fsck</span> /home <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="每小时的第一分执行-home-bruce-backup这个文件"><a href="#每小时的第一分执行-home-bruce-backup这个文件" class="headerlink" title="每小时的第一分执行 /home/bruce/backup这个文件"></a>每小时的第一分执行 /home/bruce/backup这个文件</h2><pre class="line-numbers language-bash"><code class="language-bash">1 * * * * /home/bruce/backup  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="每周一至周五3点钟，在目录-home中，查找文件名为-xxx的文件，并删除4天前的文件。"><a href="#每周一至周五3点钟，在目录-home中，查找文件名为-xxx的文件，并删除4天前的文件。" class="headerlink" title="每周一至周五3点钟，在目录/home中，查找文件名为*.xxx的文件，并删除4天前的文件。"></a>每周一至周五3点钟，在目录/home中，查找文件名为*.xxx的文件，并删除4天前的文件。</h2><pre class="line-numbers language-bash"><code class="language-bash">00 03 * * 1-5 <span class="token function">find</span> /home <span class="token string">"*.xxx"</span> -mtime +4 -exec <span class="token function">rm</span> <span class="token punctuation">{</span><span class="token punctuation">}</span> \<span class="token punctuation">;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="意思是每月的1、11、21、31日是的6：30执行一次ls命令"><a href="#意思是每月的1、11、21、31日是的6：30执行一次ls命令" class="headerlink" title="意思是每月的1、11、21、31日是的6：30执行一次ls命令"></a>意思是每月的1、11、21、31日是的6：30执行一次ls命令</h2><pre class="line-numbers language-bash"><code class="language-bash">30 6 */10 * * <span class="token function">ls</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="deepin开机自启"><a href="#deepin开机自启" class="headerlink" title="deepin开机自启"></a>deepin开机自启</h1><p><a href="https://jingyan.baidu.com/article/d169e1866e2b6c436711d840.html" target="_blank" rel="noopener">点击此处查看链接</a></p>
+<p>在一处创建xx.sh命令后，里面写上命令</p>
+<p>进入~/.config/autostart</p>
+<p>创建一个文件叫start.desktop</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>Desktop Entry<span class="token punctuation">]</span>
+Type<span class="token operator">=</span>Application
+Exec<span class="token operator">=</span>/home/lhq/start.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="PS-再用sudo-chmod-x-start-desktop权限和start-sh的权限即可"><a href="#PS-再用sudo-chmod-x-start-desktop权限和start-sh的权限即可" class="headerlink" title="PS:再用sudo chmod +x start.desktop权限和start.sh的权限即可"></a>PS:再用sudo chmod +x start.desktop权限和start.sh的权限即可</h2>
             </div>
             <hr/>
 
@@ -604,7 +614,7 @@ db<span class="token punctuation">.</span>close<span class="token punctuation">(
                     </span>
                     <a href="https://liuhuaqiang.top" class="b-link-green">未闻丶死讯的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/12/31/mysql数据库基本操作学习记录/" class="b-link-green">mysql数据库基本操作学习记录</a>
+                    <a href="/2020/02/19/Linux命令学习/" class="b-link-green">Linux命令学习</a>
                 </p>
             </div>
         </div>
@@ -626,7 +636,7 @@ db<span class="token punctuation">.</span>close<span class="token punctuation">(
         repo: '',
         owner: '',
         admin: null,
-        id: '2019-12-31T08-59-34',
+        id: '2020-02-19T15-18-03',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -645,7 +655,7 @@ db<span class="token punctuation">.</span>close<span class="token punctuation">(
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Tue Dec 31 2019 08:59:34 GMT+0800',
+    id: 'Wed Feb 19 2020 15:18:03 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -669,9 +679,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'https://liuhuaqiang.top/2019/12/31/mysql数据库基本操作学习记录/';
-        this.page.identifier = '/2019/12/31/mysql数据库基本操作学习记录/';
-        this.page.title = 'mysql数据库基本操作学习记录';
+        this.page.url = 'https://liuhuaqiang.top/2020/02/19/Linux命令学习/';
+        this.page.identifier = '/2020/02/19/Linux命令学习/';
+        this.page.title = 'Linux命令学习';
     };
     let disqus_shortname = '';
 
@@ -975,9 +985,50 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/02/19/Linux命令学习/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Linux命令学习">
+                        
+                        <span class="card-title">Linux命令学习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">后台运行命令nohup 命令 &amp;
+如:nohup python test.py &amp;
+
+可用ps -e查看   具体看哪个运行可以这么写 
+ps -e|grep xxxx
+如我想看后台的python命令：
+ps -e|grep</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            anlen123
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/01/21/python环境安装/">
                     <div class="card-image">
@@ -992,44 +1043,8 @@ gitment.render('gitment-content');
                     <div class="summary">大家好，这里是未闻丶死讯python安装 python官网：点击此处 百度云 提取码2333注意：安装的时候有个path环境一起安装，勾选上。
 anaconda安装 anaconda包含了所有的python环境下载安装即可，一直点下一步。 </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-21
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            anlen123
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/10/31/vim的自我修养/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="vim的自我修养">
-                        
-                        <span class="card-title">vim的自我修养</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">vim是什么?为什么用vimvim一些简单操作命令:x 和:wq 是一摸一样的效果，保存并退出:q 退出:w 保存:q! 强制保存
-vim配置文件一般是当前目录下的.vimrc
-我真的是服了2333
-</div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-31
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-21
                             </span>
                         <span class="publish-author">
                             
