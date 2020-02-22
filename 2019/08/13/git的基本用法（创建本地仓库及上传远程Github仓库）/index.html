@@ -409,7 +409,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1k
+                        1.2k
                     </div>
                     
 
@@ -503,6 +503,15 @@ git config --global users.email &quot;xxxxx&quot;</code></pre><h3 id="用-git-co
 <span class="token function">git</span> config --global -e<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>保存密码<br>git 每次push和pull都需要提交密码<br>每次从远程仓库拉代码或者向远程仓库提交代码的时候需要输入密码的解决方法<br>执行  </p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> config --global credential.helper store<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h1><h2 id="查看当前分支"><a href="#查看当前分支" class="headerlink" title="查看当前分支"></a>查看当前分支</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> branch<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h2><p>如创建分支xx</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> branch xx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> checkout xx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="分支上传"><a href="#分支上传" class="headerlink" title="分支上传"></a>分支上传</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> push --set-upstream origin java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="下载分支"><a href="#下载分支" class="headerlink" title="下载分支"></a>下载分支</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/github_id/项目名字 --branch<span class="token operator">=</span>xx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="上传大文件"><a href="#上传大文件" class="headerlink" title="上传大文件"></a>上传大文件</h1><p>资料:<a href="https://blog.csdn.net/Tyro_java/article/details/53440666" target="_blank" rel="noopener">点击查看</a></p>
+<p>安装 lfs</p>
+<p>```bash<br>只需设置1次 LFS :<br>git lfs install<br>然后 跟踪一下你要push的大文件的文件或指定文件类型<br>git lfs track “*.pdf” ，<br>当然还可以直接编辑.gitattributes文件<br>以上已经设置完毕， 其余的工作就是按照正常的 add , commit , push 流程就可以了 :<br>git add yourLargeFile.pdf<br>git commit -m “Add Large file”<br>git push -u origin master</p>
 
             </div>
             <hr/>
@@ -1149,7 +1158,7 @@ pip installer pyinstaller
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">7k</span>
+                <span class="white-color">7.1k</span>
             
 
             
