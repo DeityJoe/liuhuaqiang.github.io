@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>linux中tar命令用法</title>
+      <link href="/2020/04/01/linux%E4%B8%ADtar%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95/"/>
+      <url>/2020/04/01/linux%E4%B8%ADtar%E5%91%BD%E4%BB%A4%E7%94%A8%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="linux中tar命令用法"><a href="#linux中tar命令用法" class="headerlink" title="linux中tar命令用法"></a>linux中tar命令用法</h1><hr><p>把常用的tar解压命令总结下，当作备忘：</p><h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><p>-c: 建立压缩档案<br>-x：解压<br>-t：查看内容<br>-r：向压缩归档文件末尾追加文件<br>-u：更新原压缩包中的文件</p><p>这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个。下面的参数是根据需要在压缩或解压档案时可选的。</p><p>-z：有gzip属性的<br>-j：有bz2属性的<br>-Z：有compress属性的<br>-v：显示所有过程<br>-O：将文件解开到标准输出</p><h2 id="下面的参数-f是必须的"><a href="#下面的参数-f是必须的" class="headerlink" title="下面的参数-f是必须的"></a>下面的参数-f是必须的</h2><p>-f: 使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名。</p><p># tar -cf all.tar *.jpg<br>这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。</p><p># tar -rf all.tar *.gif<br>这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。</p><p># tar -uf all.tar logo.gif<br>这条命令是更新原来tar包all.tar中logo.gif文件，-u是表示更新文件的意思。</p><p># tar -tf all.tar<br>这条命令是列出all.tar包中所有文件，-t是列出文件的意思</p><p># tar -xf all.tar<br>这条命令是解出all.tar包中所有文件，-x是解开的意思</p><p>压缩</p><ul><li>tar –cvf jpg.tar *.jpg 将目录里所有jpg文件打包成tar.jpg</li><li>tar –czf jpg.tar.gz *.jpg  将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz</li><li>tar –cjf jpg.tar.bz2 *.jpg 将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2</li><li>tar –cZf jpg.tar.Z *.jpg  将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z</li><li>rar a jpg.rar *.jpg rar格式的压缩，需要先下载rar for linux</li><li>zip jpg.zip *.jpg  zip格式的压缩，需要先下载zip for linux</li></ul><p>解压</p><ul><li>tar –xvf file.tar 解压 tar包</li><li>tar -xzvf file.tar.gz 解压tar.gz</li><li>tar -xjvf file.tar.bz2  解压 tar.bz2</li><li>tar –xZvf file.tar.Z  解压tar.Z</li><li>unrar e file.rar 解压rar</li><li>unzip file.zip 解压zip</li></ul><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol><li>*.tar 用 tar –xvf 解压</li><li>*.gz 用 gzip -d或者gunzip 解压     </li><li><em>.tar.gz和</em>.tgz 用 tar –xzf 解压</li><li>*.bz2 用 bzip2 -d或者用bunzip2 解压</li><li>*.tar.bz2用tar –xjf 解压</li><li>*.Z 用 uncompress 解压</li><li>*.tar.Z 用tar –xZf 解压</li><li>*.rar 用 unrar e解压</li><li>*.zip 用 unzip 解压</li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux命令学习</title>
       <link href="/2020/02/19/Linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/"/>
       <url>/2020/02/19/Linux%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/</url>
@@ -47,7 +60,7 @@
       <link href="/2019/10/31/vim%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/"/>
       <url>/2019/10/31/vim%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</url>
       
-        <content type="html"><![CDATA[<h1 id="vim是什么"><a href="#vim是什么" class="headerlink" title="vim是什么?"></a>vim是什么?</h1><h1 id="为什么用vim"><a href="#为什么用vim" class="headerlink" title="为什么用vim"></a>为什么用vim</h1><h1 id="vim一些简单操作命令"><a href="#vim一些简单操作命令" class="headerlink" title="vim一些简单操作命令"></a>vim一些简单操作命令</h1><p>:x 和:wq 是一摸一样的效果，保存并退出<br>:q 退出<br>:w 保存<br>:q! 强制保存</p><h1 id="vim配置文件"><a href="#vim配置文件" class="headerlink" title="vim配置文件"></a>vim配置文件</h1><p>一般是当前目录下的.vimrc</p><h1 id="我真的是服了"><a href="#我真的是服了" class="headerlink" title="我真的是服了"></a>我真的是服了</h1><p>2333</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="更新vim8"><a href="#更新vim8" class="headerlink" title="更新vim8"></a>更新vim8</h1><p><img src="https://blog.csdn.net/qq_37903963/article/details/99683590" alt></p><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">wget</span> https://github.com/vim/vim/archive/v8.1.1766.tar.gz<span class="token function">tar</span> -zxvf  v8.1.1766.tar.gz<span class="token function">cd</span> vim-8.1.1766/./configure --prefix<span class="token operator">=</span>/usr/local<span class="token operator">&amp;&amp;</span><span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span><span class="token function">alias</span> vim<span class="token operator">=</span><span class="token string">'/usr/local/bin/vim'</span><span class="token keyword">echo</span> <span class="token string">"alias vim='/usr/local/bin/vim' "</span> <span class="token operator">>></span> ~/.bashrcvim -version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="vim是什么"><a href="#vim是什么" class="headerlink" title="vim是什么?"></a>vim是什么?</h1><h1 id="为什么用vim"><a href="#为什么用vim" class="headerlink" title="为什么用vim"></a>为什么用vim</h1><h1 id="vim一些简单操作命令"><a href="#vim一些简单操作命令" class="headerlink" title="vim一些简单操作命令"></a>vim一些简单操作命令</h1><p>:x 和:wq 是一摸一样的效果，保存并退出<br>:q 退出<br>:w 保存<br>:q! 强制保存</p><h1 id="vim配置文件"><a href="#vim配置文件" class="headerlink" title="vim配置文件"></a>vim配置文件</h1><p>一般是当前目录下的.vimrc</p><h1 id="我真的是服了"><a href="#我真的是服了" class="headerlink" title="我真的是服了"></a>我真的是服了</h1><p>2333</p>]]></content>
       
       
       

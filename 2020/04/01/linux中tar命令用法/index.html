@@ -4,9 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="超简单的github管理(萌新的见解), 未闻丶死讯的博客">
-    <meta name="description" content="
-前言大家好，我是刚刚学git不久的萌新，以前用c++，现在在用python，就在今天，我突然发现，pycharm上面居然有git管理工具，而且我一用，卧槽，真的好用，不需要记录，你对文件进行了什么什么操作，不需要git add xxx 或">
+    <meta name="keywords" content="linux中tar命令用法, 未闻丶死讯的博客">
+    <meta name="description" content="linux中tar命令用法
+把常用的tar解压命令总结下，当作备忘：
+tar-c: 建立压缩档案-x：解压-t：查看内容-r：向压缩归档文件末尾追加文件-u：更新原压缩包中的文件
+这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>超简单的github管理(萌新的见解) | 未闻丶死讯的博客</title>
+    <title>linux中tar命令用法 | 未闻丶死讯的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -293,13 +295,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        超简单的github管理(萌新的见解)
+                        linux中tar命令用法
                     </div>
                 </div>
             </div>
@@ -402,14 +404,14 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-08-23
+                    2020-04-01
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        835
+                        663
                     </div>
                     
 
@@ -432,20 +434,46 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="https://github.com/anlen123/phtoto/blob/master/%E7%8C%AB%E7%B2%AE/(76354679)%F0%9F%A6%8A%F0%9F%90%B0%F0%9F%90%B1%E2%9D%A4.jpg" alt></p>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>大家好，我是刚刚学git不久的萌新，以前用c++，现在在用python，就在今天，我突然发现，pycharm上面居然有git管理工具，而且我一用，卧槽，真的好用，不需要记录，你对文件进行了什么什么操作，不需要git add xxx 或者是 git rm xxx 再git commit -m “xxx”再git push这些指令了，我简直就像找到了新大陆，我就想，肯定有这种有界面的git管理工具的，我上网<br>搜了一下，果然发现了一个神器GitKraken这款工具，就具备了上面的所有功能，而且，真的，一个代码都不用写，超简单，那么现在我们就开始吧！！！</p>
-<h1 id="git下载和github注册（准备工作）"><a href="#git下载和github注册（准备工作）" class="headerlink" title="git下载和github注册（准备工作）"></a>git下载和github注册（准备工作）</h1><p>如果前两个工作还没有做完，到<a href="https://liuhuaqiang.top/2019/08/13/git%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95%EF%BC%88%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%8F%8A%E4%B8%8A%E4%BC%A0%E8%BF%9C%E7%A8%8BGithub%E4%BB%93%E5%BA%93%EF%BC%89/">这里</a>查看教程,还需要，把你电脑的ssh上传到github的密匙上，教程很详细了。</p>
-<h1 id="GitKraken下载"><a href="#GitKraken下载" class="headerlink" title="GitKraken下载"></a>GitKraken下载</h1><p>GitKraken官网是<a href="https://www.gitkraken.com/" target="_blank" rel="noopener">这里</a><br>如图：<br><img src="/2019/08/23/超简单的github管理-萌新的见解/1.png" alt><br>可能有些人没有富强（vpn）的下载速度慢到令人发指，<br>有两个方案，到我的群里教你啊，哈哈哈哈！！！<br>我这里给你们准备了百度云的<a href="https://pan.baidu.com/s/1tO5Cgx_3gVer_Wu69GMgig" target="_blank" rel="noopener">链接</a>提取码:dmsr<br>安装，登陆你的github账号</p>
-<h1 id="新建一个仓库"><a href="#新建一个仓库" class="headerlink" title="新建一个仓库"></a>新建一个仓库</h1><p>你可以在GitKraken这个软件上创建，当然，到网页上创建仓库也可以，<br>如图：<br><img src="/2019/08/23/超简单的github管理-萌新的见解/2.png" alt><br>创建好后是这样的:<br><img src="/2019/08/23/超简单的github管理-萌新的见解/3.png" alt><br>我这里创建了一个love的仓库</p>
-<h1 id="克隆仓库到本地-创建本地仓库并连接到云端仓库"><a href="#克隆仓库到本地-创建本地仓库并连接到云端仓库" class="headerlink" title="克隆仓库到本地(创建本地仓库并连接到云端仓库)"></a>克隆仓库到本地(创建本地仓库并连接到云端仓库)</h1><p>首先，打开软件，界面是这样的：<br><img src="/2019/08/23/超简单的github管理-萌新的见解/4.png" alt><br>我们点击Clone a repo，打开后是这样的<br><img src="/2019/08/23/超简单的github管理-萌新的见解/5.png" alt><br>这里选择Clone -&gt; Github.com<br>Where to clone to 这里填你的本地仓库的地址<br>Repository to clone 这里填你要连接的仓库</p>
-<p>如图：<br><img src="/2019/08/23/超简单的github管理-萌新的见解/6.png" alt><br>然后点击右下角的Clone the repo!</p>
-<p><img src="/2019/08/23/超简单的github管理-萌新的见解/7.png" alt><br><img src="/2019/08/23/超简单的github管理-萌新的见解/8.png" alt><br>一路上他会问你，是否打开，选择打开，是否初始化本地仓库，是的，<br>一路点击即可<br>然后你就会看见这样的画面：</p>
-<p><img src="/2019/08/23/超简单的github管理-萌新的见解/9.png" alt></p>
-<h1 id="添加文件，修改文件，删除文件测试"><a href="#添加文件，修改文件，删除文件测试" class="headerlink" title="添加文件，修改文件，删除文件测试"></a>添加文件，修改文件，删除文件测试</h1><p>完成了上面的步骤，就已经完成了，让我们来测试一下，<br><img src="/2019/08/23/超简单的github管理-萌新的见解/10.png" alt><br>我这里添加了一个123.txt然后里面的内容是<a href="https://space.bilibili.com/32482364" target="_blank" rel="noopener">未闻丶死讯</a>,然后我们提交一下，点击右上角的view<br><img src="/2019/08/23/超简单的github管理-萌新的见解/11.png" alt><br>点击Status all changes 他会记录你的所有改变，然后输入你的改变的描述，<br><img src="/2019/08/23/超简单的github管理-萌新的见解/12.png" alt><br>这样就算提交成功了<br><img src="/2019/08/23/超简单的github管理-萌新的见解/13.png" alt><br>最后一步了，需要同步到远程仓库，点击上面的push即可，如图：<br><img src="/2019/08/23/超简单的github管理-萌新的见解/14.png" alt><br>第一次会问你，到哪个分支，额，你一个人用的话，基本用不着这个，直接提交就行了。<br><img src="/2019/08/23/超简单的github管理-萌新的见解/15.png" alt><br>然后，左下角，提示，成功了，ok，去仓库看看<br><img src="/2019/08/23/超简单的github管理-萌新的见解/16.png" alt></p>
-<p>看，成功了添加了吧。<br><img src="/2019/08/23/超简单的github管理-萌新的见解/17.png" alt></p>
-<p>下面我们来改和删试试，</p>
-<p><img src="/2019/08/23/超简单的github管理-萌新的见解/18.png" alt></p>
-<p>ok<br><img src="/2019/08/23/超简单的github管理-萌新的见解/19.png" alt><br>没问题，好了，谢谢大家的观看，溜了。爱你们！！！<br>PS：千万千万一次性上传100M以上的东西，千万别。<br>PS：千万千万一次性上传100M以上的东西，千万别。<br>PS：千万千万一次性上传100M以上的东西，千万别。<br>PS：千万千万一次性上传100M以上的东西，千万别。<br>PS：千万千万一次性上传100M以上的东西，千万别。<br>PS：千万千万一次性上传100M以上的东西，千万别.</p>
+                <h1 id="linux中tar命令用法"><a href="#linux中tar命令用法" class="headerlink" title="linux中tar命令用法"></a>linux中tar命令用法</h1><hr>
+<p>把常用的tar解压命令总结下，当作备忘：</p>
+<h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><p>-c: 建立压缩档案<br>-x：解压<br>-t：查看内容<br>-r：向压缩归档文件末尾追加文件<br>-u：更新原压缩包中的文件</p>
+<p>这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个。下面的参数是根据需要在压缩或解压档案时可选的。</p>
+<p>-z：有gzip属性的<br>-j：有bz2属性的<br>-Z：有compress属性的<br>-v：显示所有过程<br>-O：将文件解开到标准输出</p>
+<h2 id="下面的参数-f是必须的"><a href="#下面的参数-f是必须的" class="headerlink" title="下面的参数-f是必须的"></a>下面的参数-f是必须的</h2><p>-f: 使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名。</p>
+<p># tar -cf all.tar *.jpg<br>这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。</p>
+<p># tar -rf all.tar *.gif<br>这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。</p>
+<p># tar -uf all.tar logo.gif<br>这条命令是更新原来tar包all.tar中logo.gif文件，-u是表示更新文件的意思。</p>
+<p># tar -tf all.tar<br>这条命令是列出all.tar包中所有文件，-t是列出文件的意思</p>
+<p># tar -xf all.tar<br>这条命令是解出all.tar包中所有文件，-x是解开的意思</p>
+<p>压缩</p>
+<ul>
+<li>tar –cvf jpg.tar *.jpg 将目录里所有jpg文件打包成tar.jpg</li>
+<li>tar –czf jpg.tar.gz *.jpg  将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz</li>
+<li>tar –cjf jpg.tar.bz2 *.jpg 将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2</li>
+<li>tar –cZf jpg.tar.Z *.jpg  将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z</li>
+<li>rar a jpg.rar *.jpg rar格式的压缩，需要先下载rar for linux</li>
+<li>zip jpg.zip *.jpg  zip格式的压缩，需要先下载zip for linux</li>
+</ul>
+<p>解压</p>
+<ul>
+<li>tar –xvf file.tar 解压 tar包</li>
+<li>tar -xzvf file.tar.gz 解压tar.gz</li>
+<li>tar -xjvf file.tar.bz2  解压 tar.bz2</li>
+<li>tar –xZvf file.tar.Z  解压tar.Z</li>
+<li>unrar e file.rar 解压rar</li>
+<li>unzip file.zip 解压zip</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>*.tar 用 tar –xvf 解压</li>
+<li>*.gz 用 gzip -d或者gunzip 解压     </li>
+<li><em>.tar.gz和</em>.tgz 用 tar –xzf 解压</li>
+<li>*.bz2 用 bzip2 -d或者用bunzip2 解压</li>
+<li>*.tar.bz2用tar –xjf 解压</li>
+<li>*.Z 用 uncompress 解压</li>
+<li>*.tar.Z 用tar –xZf 解压</li>
+<li>*.rar 用 unrar e解压</li>
+<li>*.zip 用 unzip 解压</li>
+</ol>
 
             </div>
             <hr/>
@@ -586,7 +614,7 @@
                     </span>
                     <a href="https://liuhuaqiang.top" class="b-link-green">未闻丶死讯的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/08/23/超简单的github管理-萌新的见解/" class="b-link-green">超简单的github管理(萌新的见解)</a>
+                    <a href="/2020/04/01/linux中tar命令用法/" class="b-link-green">linux中tar命令用法</a>
                 </p>
             </div>
         </div>
@@ -608,7 +636,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2019-08-23T16-25-01',
+        id: '2020-04-01T15-16-09',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -627,7 +655,7 @@
 <script src="/libs/gitment/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-    id: 'Fri Aug 23 2019 16:25:01 GMT+0800',
+    id: 'Wed Apr 01 2020 15:16:09 GMT+0800',
     owner: '',
     repo: '',
     oauth: {
@@ -651,9 +679,9 @@ gitment.render('gitment-content');
 
 <script type="text/javascript">
     disqus_config = function () {
-        this.page.url = 'https://liuhuaqiang.top/2019/08/23/超简单的github管理-萌新的见解/';
-        this.page.identifier = '/2019/08/23/超简单的github管理-萌新的见解/';
-        this.page.title = '超简单的github管理(萌新的见解)';
+        this.page.url = 'https://liuhuaqiang.top/2020/04/01/linux中tar命令用法/';
+        this.page.identifier = '/2020/04/01/linux中tar命令用法/';
+        this.page.title = 'linux中tar命令用法';
     };
     let disqus_shortname = '';
 
@@ -957,25 +985,29 @@ gitment.render('gitment-content');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/08/30/python简单多线程学习笔记/">
+                <a href="/2020/04/01/linux中tar命令用法/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="python简单多线程学习笔记">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="linux中tar命令用法">
                         
-                        <span class="card-title">python简单多线程学习笔记</span>
+                        <span class="card-title">linux中tar命令用法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">多线程原理多线程（英语：multithreading），是指从软件或者硬件上实现多个线程并发执行的技术。具有多线程能力的计算机因有硬件支持而能够在同一时间执行多于一个线程，进而提升整体处理性能。具有这种能力的系统包括对称多处理机、多核心处理</div>
+                    <div class="summary">linux中tar命令用法
+把常用的tar解压命令总结下，当作备忘：
+tar-c: 建立压缩档案-x：解压-t：查看内容-r：向压缩归档文件末尾追加文件-u：更新原压缩包中的文件
+这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -984,6 +1016,7 @@ gitment.render('gitment-content');
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -994,24 +1027,26 @@ gitment.render('gitment-content');
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/14/python如何打包成exe文件/">
+                <a href="/2020/02/19/Linux命令学习/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="python如何打包成exe文件">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Linux命令学习">
                         
-                        <span class="card-title">python如何打包成exe文件</span>
+                        <span class="card-title">Linux命令学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">怎么打包exe呢这一期的问题是，我们写好了程序，该怎么打包成exe文件呢当然是用pyinstaller 辣！！！！
-第一步，安装pyinstaller打开cmd 
-pip installer pyinstaller 
-搞定了。
-如果有小伙伴</div>
+                    <div class="summary">后台运行命令nohup 命令 &amp;
+如:nohup python test.py &amp;
+
+可用ps -e查看   具体看哪个运行可以这么写 
+ps -e|grep xxxx
+如我想看后台的python命令：
+ps -e|grep</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-14
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-19
                             </span>
                         <span class="publish-author">
                             

@@ -5,10 +5,14 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="vim的自我修养, 未闻丶死讯的博客">
-    <meta name="description" content="vim是什么?为什么用vimvim一些简单操作命令:x 和:wq 是一摸一样的效果，保存并退出:q 退出:w 保存:q! 强制保存
-vim配置文件一般是当前目录下的.vimrc
-我真的是服了2333
-">
+    <meta name="description" content="更新vim8
+wget https://github.com/vim/vim/archive/v8.1.1766.tar.gz
+
+
+tar -zxvf  v8.1.1766.tar.gz
+
+cd vim-8.1.1766/
+./config">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -411,7 +415,7 @@ vim配置文件一般是当前目录下的.vimrc
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        66
+                        120
                     </div>
                     
 
@@ -434,7 +438,23 @@ vim配置文件一般是当前目录下的.vimrc
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="vim是什么"><a href="#vim是什么" class="headerlink" title="vim是什么?"></a>vim是什么?</h1><h1 id="为什么用vim"><a href="#为什么用vim" class="headerlink" title="为什么用vim"></a>为什么用vim</h1><h1 id="vim一些简单操作命令"><a href="#vim一些简单操作命令" class="headerlink" title="vim一些简单操作命令"></a>vim一些简单操作命令</h1><p>:x 和:wq 是一摸一样的效果，保存并退出<br>:q 退出<br>:w 保存<br>:q! 强制保存</p>
+                <h1 id="更新vim8"><a href="#更新vim8" class="headerlink" title="更新vim8"></a>更新vim8</h1><p><img src="https://blog.csdn.net/qq_37903963/article/details/99683590" alt></p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">wget</span> https://github.com/vim/vim/archive/v8.1.1766.tar.gz
+
+
+<span class="token function">tar</span> -zxvf  v8.1.1766.tar.gz
+
+<span class="token function">cd</span> vim-8.1.1766/
+./configure --prefix<span class="token operator">=</span>/usr/local<span class="token operator">&amp;&amp;</span><span class="token function">make</span> <span class="token operator">&amp;&amp;</span> <span class="token function">make</span> <span class="token function">install</span>
+
+<span class="token function">alias</span> vim<span class="token operator">=</span><span class="token string">'/usr/local/bin/vim'</span>
+<span class="token keyword">echo</span> <span class="token string">"alias vim='/usr/local/bin/vim' "</span> <span class="token operator">>></span> ~/.bashrc
+
+vim -version
+
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="vim是什么"><a href="#vim是什么" class="headerlink" title="vim是什么?"></a>vim是什么?</h1><h1 id="为什么用vim"><a href="#为什么用vim" class="headerlink" title="为什么用vim"></a>为什么用vim</h1><h1 id="vim一些简单操作命令"><a href="#vim一些简单操作命令" class="headerlink" title="vim一些简单操作命令"></a>vim一些简单操作命令</h1><p>:x 和:wq 是一摸一样的效果，保存并退出<br>:q 退出<br>:w 保存<br>:q! 强制保存</p>
 <h1 id="vim配置文件"><a href="#vim配置文件" class="headerlink" title="vim配置文件"></a>vim配置文件</h1><p>一般是当前目录下的.vimrc</p>
 <h1 id="我真的是服了"><a href="#我真的是服了" class="headerlink" title="我真的是服了"></a>我真的是服了</h1><p>2333</p>
 
@@ -1081,7 +1101,7 @@ gitment.render('gitment-content');
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">7.3k</span>
+                <span class="white-color">8k</span>
             
 
             
