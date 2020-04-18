@@ -4,11 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="linux中tar命令用法, 未闻丶死讯的博客">
-    <meta name="description" content="linux中tar命令用法
-把常用的tar解压命令总结下，当作备忘：
-tar-c: 建立压缩档案-x：解压-t：查看内容-r：向压缩归档文件末尾追加文件-u：更新原压缩包中的文件
-这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令">
+    <meta name="keywords" content="aria2c使用指南, 未闻丶死讯的博客">
+    <meta name="description" content="PS :https://github.com/aria2/aria2  (开源地址)
+什么是Aria2aria2是一个自由、开源、轻量级多协议和多源的命令行下载工具。它支持 HTTP/HTTPS、FTP、SFTP、 BitTorrent 和">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +14,7 @@ tar-c: 建立压缩档案-x：解压-t：查看内容-r：向压缩归档文件�
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>linux中tar命令用法 | 未闻丶死讯的博客</title>
+    <title>aria2c使用指南 | 未闻丶死讯的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -295,13 +293,13 @@ tar-c: 建立压缩档案-x：解压-t：查看内容-r：向压缩归档文件�
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        linux中tar命令用法
+                        aria2c使用指南
                     </div>
                 </div>
             </div>
@@ -404,21 +402,21 @@ tar-c: 建立压缩档案-x：解压-t：查看内容-r：向压缩归档文件�
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-01
+                    2020-04-18
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        663
+                        825
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        3 分
                     </div>
                     
                 
@@ -434,46 +432,69 @@ tar-c: 建立压缩档案-x：解压-t：查看内容-r：向压缩归档文件�
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="linux中tar命令用法"><a href="#linux中tar命令用法" class="headerlink" title="linux中tar命令用法"></a>linux中tar命令用法</h1><hr>
-<p>把常用的tar解压命令总结下，当作备忘：</p>
-<h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><p>-c: 建立压缩档案<br>-x：解压<br>-t：查看内容<br>-r：向压缩归档文件末尾追加文件<br>-u：更新原压缩包中的文件</p>
-<p>这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个。下面的参数是根据需要在压缩或解压档案时可选的。</p>
-<p>-z：有gzip属性的<br>-j：有bz2属性的<br>-Z：有compress属性的<br>-v：显示所有过程<br>-O：将文件解开到标准输出</p>
-<h2 id="下面的参数-f是必须的"><a href="#下面的参数-f是必须的" class="headerlink" title="下面的参数-f是必须的"></a>下面的参数-f是必须的</h2><p>-f: 使用档案名字，切记，这个参数是最后一个参数，后面只能接档案名。</p>
-<p># tar -cf all.tar *.jpg<br>这条命令是将所有.jpg的文件打成一个名为all.tar的包。-c是表示产生新的包，-f指定包的文件名。</p>
-<p># tar -rf all.tar *.gif<br>这条命令是将所有.gif的文件增加到all.tar的包里面去。-r是表示增加文件的意思。</p>
-<p># tar -uf all.tar logo.gif<br>这条命令是更新原来tar包all.tar中logo.gif文件，-u是表示更新文件的意思。</p>
-<p># tar -tf all.tar<br>这条命令是列出all.tar包中所有文件，-t是列出文件的意思</p>
-<p># tar -xf all.tar<br>这条命令是解出all.tar包中所有文件，-x是解开的意思</p>
-<p>压缩</p>
-<ul>
-<li>tar –cvf jpg.tar *.jpg 将目录里所有jpg文件打包成tar.jpg</li>
-<li>tar –czf jpg.tar.gz *.jpg  将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz</li>
-<li>tar –cjf jpg.tar.bz2 *.jpg 将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2</li>
-<li>tar –cZf jpg.tar.Z *.jpg  将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z</li>
-<li>rar a jpg.rar *.jpg rar格式的压缩，需要先下载rar for linux</li>
-<li>zip jpg.zip *.jpg  zip格式的压缩，需要先下载zip for linux</li>
-</ul>
-<p>解压</p>
-<ul>
-<li>tar –xvf file.tar 解压 tar包</li>
-<li>tar -xzvf file.tar.gz 解压tar.gz</li>
-<li>tar -xjvf file.tar.bz2  解压 tar.bz2</li>
-<li>tar –xZvf file.tar.Z  解压tar.Z</li>
-<li>unrar e file.rar 解压rar</li>
-<li>unzip file.zip 解压zip</li>
-</ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
-<li>*.tar 用 tar –xvf 解压</li>
-<li>*.gz 用 gzip -d或者gunzip 解压     </li>
-<li><em>.tar.gz和</em>.tgz 用 tar –xzf 解压</li>
-<li>*.bz2 用 bzip2 -d或者用bunzip2 解压</li>
-<li>*.tar.bz2用tar –xjf 解压</li>
-<li>*.Z 用 uncompress 解压</li>
-<li>*.tar.Z 用tar –xZf 解压</li>
-<li>*.rar 用 unrar e解压</li>
-<li>*.zip 用 unzip 解压</li>
-</ol>
+                <p>PS :<a href="https://github.com/aria2/aria2" target="_blank" rel="noopener">https://github.com/aria2/aria2</a>  (开源地址)</p>
+<h1 id="什么是Aria2"><a href="#什么是Aria2" class="headerlink" title="什么是Aria2"></a>什么是Aria2</h1><p>aria2是一个自由、开源、轻量级多协议和多源的命令行下载工具。它支持 HTTP/HTTPS、FTP、SFTP、 BitTorrent 和 Metalink 协议。aria2 可以通过内建的 JSON-RPC 和 XML-RPC 接口来操纵。aria2 下载文件的时候，自动验证数据块。它可以通过多个来源或者多个协议下载一个文件，并且会尝试利用你的最大下载带宽。默认情况下，所有的 Linux 发行版都包括 aria2，所以我们可以从官方库中很容易的安装。一些 GUI 下载管理器例如 uget 使用 aria2 作为插件来提高下载速度。</p>
+<h2 id="Aria2-特性"><a href="#Aria2-特性" class="headerlink" title="Aria2 特性"></a>Aria2 特性</h2><p>支持 HTTP/HTTPS GET<br>支持 HTTP 代理<br>支持 HTTP BASIC 认证<br>支持 HTTP 代理认证<br>支持 FTP （主动、被动模式）<br>通过 HTTP 代理的 FTP（GET 命令行或者隧道）<br>分段下载<br>支持 Cookie<br>可以作为守护进程运行。<br>支持使用 fast 扩展的 BitTorrent 协议<br>支持在多文件 torrent 中选择文件<br>支持 Metalink 3.0 版本（HTTP/FTP/BitTorrent）<br>限制下载、上传速度</p>
+<h1 id="Linux-下安装-aria2"><a href="#Linux-下安装-aria2" class="headerlink" title="Linux 下安装 aria2"></a>Linux 下安装 aria2</h1><pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>对于 Debian、 Ubuntu 和 Mint<span class="token punctuation">]</span>
+$ <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> aria2
+
+<span class="token punctuation">[</span>对于 CentOS、 RHEL、 Fedora 21 和更早些的操作系统<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># yum install aria2</span>
+
+<span class="token punctuation">[</span>Fedora 22 和 之后的系统<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># dnf install aria2</span>
+
+<span class="token punctuation">[</span>对于 suse 和 openSUSE<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># zypper install wget</span>
+
+<span class="token punctuation">[</span>Mageia<span class="token punctuation">]</span>
+<span class="token comment" spellcheck="true"># urpmi aria2</span>
+
+<span class="token punctuation">[</span>对于 Arch Linux<span class="token punctuation">]</span>
+$ <span class="token function">sudo</span> pacman -S aria2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="Aria2-的使用"><a href="#Aria2-的使用" class="headerlink" title="Aria2 的使用"></a>Aria2 的使用</h1><h2 id="下载单个文件"><a href="#下载单个文件" class="headerlink" title="下载单个文件"></a>下载单个文件</h2><pre class="line-numbers language-bash"><code class="language-bash">1、直链下载
+下载直链文件，只需在命令后附加地址，如：
+
+
+aria2c http://xx.com/xx
+如果需要重命名为yy的话加上--out或者-o参数，如：
+
+
+aria2c --out<span class="token operator">=</span>yy http://xx.com/xx
+aria2c -o yy http://xx.com/xx
+使用aria2的分段和多线程下载功能可以加快文件的下载速度，对于下载大文件时特别有用。-x 分段下载，-s 多线程下载，如：
+
+
+aria2c -s 2 -x 2 http://xx.com/xx
+这将使用2个连接和2个线程来下载该文件。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="BT下载"><a href="#BT下载" class="headerlink" title="BT下载"></a>BT下载</h2><pre class="line-numbers language-bash"><code class="language-bash">种子和磁力下载：
+
+aria2c ‘xxx.torrnet‘
+aria2c <span class="token string">'磁力链接'</span>
+列出种子内容：
+
+aria2c -S xxx.torrent
+下载种子内编号为1、4、5、6、7的文件，如：
+
+aria2c --select-file<span class="token operator">=</span>1,4-7 xxx.torrent
+设置bt端口：
+
+aria2c --listen-port<span class="token operator">=</span>3653 ‘xxx.torrent’<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="限速下载"><a href="#限速下载" class="headerlink" title="限速下载"></a>限速下载</h2><pre class="line-numbers language-bash"><code class="language-bash">单个文件最大下载速度：
+
+aria2c --max-download-limit<span class="token operator">=</span>300K -s10 -x10 <span class="token string">'http://xx.com/xx'</span>
+整体下载最大速度：
+
+aria2c --max-overall-download-limit<span class="token operator">=</span>300k -s10 -x10 <span class="token string">'http://xx.com/xx'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="下载多个文件"><a href="#下载多个文件" class="headerlink" title="下载多个文件"></a>下载多个文件</h1><p>下面的命令将会从指定位置下载超过一个的文件并保存到当前目录，在下载文件的过程中，我们可以看到文件的（日期、时间、下载速度和下载进度）</p>
+<pre class="line-numbers language-bash"><code class="language-bash">aria2c -Z http://file.drivergenius.com/DGSetup_Home_KZ.exe https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0-aarch64-linux-android-build1.zip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>中间用空格隔开</p>
+<h2 id="续传未完成的下载"><a href="#续传未完成的下载" class="headerlink" title="续传未完成的下载"></a>续传未完成的下载</h2><p>-c 就完事</p>
+<pre class="line-numbers language-bash"><code class="language-bash">aria2c -c http://file.drivergenius.com/DGSetup_Home_KZ.exe<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="从文件获取输入"><a href="#从文件获取输入" class="headerlink" title="从文件获取输入"></a>从文件获取输入</h1><p>就像 wget 可以从一个文件获取输入的 URL 列表来下载一样。我们需要创建一个文件，将每一个 URL 存储在单独的行中。ara2 命令行可以添加 -i 选项来执行此操作。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">aria2c -i test-aria2.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="win10使用aria2"><a href="#win10使用aria2" class="headerlink" title="win10使用aria2"></a>win10使用aria2</h1><p>下载win10的,和以上linux操作一致,不过有GUI版的</p>
+<p><a href="https://www.lanzous.com/ibk87wd" target="_blank" rel="noopener">下载地址</a></p>
 
             </div>
             <hr/>
@@ -614,7 +635,7 @@ tar-c: 建立压缩档案-x：解压-t：查看内容-r：向压缩归档文件�
                     </span>
                     <a href="https://liuhuaqiang.top" class="b-link-green">未闻丶死讯的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2020/04/01/linux中tar命令用法/" class="b-link-green">linux中tar命令用法</a>
+                    <a href="/2020/04/18/aria2c使用指南/" class="b-link-green">aria2c使用指南</a>
                 </p>
             </div>
         </div>
@@ -635,9 +656,10 @@ tar-c: 建立压缩档案-x：解压-t：查看内容-r：向压缩归档文件�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/04/18/aria2c使用指南/">
                     <div class="card-image">
@@ -652,9 +674,9 @@ tar-c: 建立压缩档案-x：解压-t：查看内容-r：向压缩归档文件�
                     <div class="summary">PS :https://github.com/aria2/aria2  (开源地址)
 什么是Aria2aria2是一个自由、开源、轻量级多协议和多源的命令行下载工具。它支持 HTTP/HTTPS、FTP、SFTP、 BitTorrent 和</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -663,6 +685,7 @@ tar-c: 建立压缩档案-x：解压-t：查看内容-r：向压缩归档文件�
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -673,26 +696,23 @@ tar-c: 建立压缩档案-x：解压-t：查看内容-r：向压缩归档文件�
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/19/Linux命令学习/">
+                <a href="/2020/04/01/linux中tar命令用法/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Linux命令学习">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="linux中tar命令用法">
                         
-                        <span class="card-title">Linux命令学习</span>
+                        <span class="card-title">linux中tar命令用法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">后台运行命令nohup 命令 &amp;
-如:nohup python test.py &amp;
-
-可用ps -e查看   具体看哪个运行可以这么写 
-ps -e|grep xxxx
-如我想看后台的python命令：
-ps -e|grep</div>
+                    <div class="summary">linux中tar命令用法
+把常用的tar解压命令总结下，当作备忘：
+tar-c: 建立压缩档案-x：解压-t：查看内容-r：向压缩归档文件末尾追加文件-u：更新原压缩包中的文件
+这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-19
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-01
                             </span>
                         <span class="publish-author">
                             
