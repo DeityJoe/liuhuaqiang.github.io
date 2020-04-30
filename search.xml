@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>win10修改配置的git账号密码</title>
+      <link href="/2020/04/30/win10%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E7%9A%84git%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/"/>
+      <url>/2020/04/30/win10%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E7%9A%84git%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81/</url>
+      
+        <content type="html"><![CDATA[<p>打开控制面板<br><img src="https://img-blog.csdnimg.cn/20190415164226970.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lpbnppdHVuNzk0Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>点击用户账户<br><img src="https://img-blog.csdnimg.cn/2019041516430874.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lpbnppdHVuNzk0Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>点击管理windows凭据<br><img src="https://img-blog.csdnimg.cn/20190415164445989.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lpbnppdHVuNzk0Nw==,size_16,color_FFFFFF,t_70" alt="![在这里插入图片描述](https://img-blog.csdnimg.cn/20190415164352355.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lpbnppdHVuNzk0Nw==,size_16,color_FFFFFF,t_70"><br>找到对应的网址，点击删除<br><img src="https://img-blog.csdnimg.cn/20190415164712487.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lpbnppdHVuNzk0Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在继续操作直到再次提示输入git的账号密码</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>高效使用Github寻找开源项目</title>
       <link href="/2020/04/30/%E9%AB%98%E6%95%88%E4%BD%BF%E7%94%A8Github%E5%AF%BB%E6%89%BE%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
       <url>/2020/04/30/%E9%AB%98%E6%95%88%E4%BD%BF%E7%94%A8Github%E5%AF%BB%E6%89%BE%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/</url>
