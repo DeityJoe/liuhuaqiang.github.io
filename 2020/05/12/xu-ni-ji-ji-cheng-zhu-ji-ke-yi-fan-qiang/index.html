@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="vector STL 容器, 未闻丶死讯的博客">
+    <meta name="keywords" content="虚拟机继承主机可以翻墙, 未闻丶死讯的博客">
     <meta name="description" content="菜鸡博客，大佬勿喷">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>vector STL 容器 | 未闻丶死讯的博客</title>
+    <title>虚拟机继承主机可以翻墙 | 未闻丶死讯的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">vector STL 容器</h1>
+                    <h1 class="description center-align post-title">虚拟机继承主机可以翻墙</h1>
                 </div>
             </div>
         </div>
@@ -439,12 +439,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/leetcode/">
-                                <span class="chip bg-color">leetcode</span>
-                            </a>
-                        
-                            <a href="/tags/算法题/">
-                                <span class="chip bg-color">算法题</span>
+                            <a href="/tags/学习小技巧/">
+                                <span class="chip bg-color">学习小技巧</span>
                             </a>
                         
                     </div>
@@ -459,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-07
+                    2020-05-12
                 </div>
                 
 
@@ -475,86 +471,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="vector-STL-容器"><a href="#vector-STL-容器" class="headerlink" title="vector STL 容器"></a>vector STL 容器</h1><pre class=" language-c"><code class="language-c">简介：
-vector是将元素置于一个动态数组中进行管理的容器
-vector可以随机存取元素，支持索引值直接存取，用<span class="token punctuation">[</span><span class="token punctuation">]</span>或者<span class="token function">at</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法
-vector下尾部添加或者删除元素非常快，但在中间或头部插入或者删除元素比较耗时
-
-头文件：
-<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;vector></span></span>
-
-vector基本操作：
-vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> v<span class="token punctuation">;</span>
-v<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 从尾部插入元素</span>
-<span class="token keyword">int</span> b <span class="token operator">=</span> v<span class="token punctuation">.</span><span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 获取头部元素</span>
-<span class="token keyword">int</span> a <span class="token operator">=</span> v<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 获取尾部元素</span>
-a <span class="token operator">=</span> v<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//弹出并删除尾部元素</span>
-v<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//元素长度</span>
-v<span class="token punctuation">.</span><span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">11</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//修改头部元素的值</span>
-v<span class="token punctuation">.</span><span class="token function">back</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">41</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//修改尾部元素的值</span>
-
-vector初始化：
-vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> v<span class="token punctuation">;</span>
-v<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-v<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> v2 <span class="token operator">=</span> v<span class="token punctuation">;</span>
-vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">v3</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> v<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">v4</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//事先分配3个元素空间，默认初始化为0</span>
-vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">v4</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 三个元素都是9</span>
-
-vector遍历：
-vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">v</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//当用数组的方式遍历并且是给vector赋值的时候，必须先分配好空间</span>
-
- <span class="token comment" spellcheck="true">// push_back强化</span>
-v<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//此时在第11个位置插入，因为push_back是在尾部插入的</span>
-v<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//此时在第12个位置插入，因为push_back是在尾部插入的</span>
-
-<span class="token comment" spellcheck="true">//数组方式</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> v<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     v<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>    
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">//迭代器方式-正向迭代</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">:</span><span class="token punctuation">:</span>iterator it <span class="token operator">=</span> v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> it <span class="token operator">!=</span> v<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> it<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-         cout <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span>it <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//迭代器方式-逆向迭代</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">:</span><span class="token punctuation">:</span>reverse_iterator rit <span class="token operator">=</span> v<span class="token punctuation">.</span><span class="token function">rbegin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> rit <span class="token operator">!=</span> v<span class="token punctuation">.</span><span class="token function">rend</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> rit<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-         cout <span class="token operator">&lt;&lt;</span> <span class="token operator">*</span>rit <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-迭代器强化：
-<span class="token number">1</span><span class="token punctuation">.</span>  v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span>指向v的第一个元素的位置，v<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>指向的是v最后一个元素的下一个位置
-<span class="token number">2</span><span class="token punctuation">.</span>  迭代器种类：正向迭代器、逆向迭代器、双向迭代器、只读迭代器、、、、
-
-vector删除和插入：
-vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">v</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> v<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-     v<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>    
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">//根据元素的位置删除</span>
-v<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//区间删除</span>
-v<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//删除指定位置单个元素</span>
-
-<span class="token comment" spellcheck="true">//根据值删除</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token punctuation">:</span><span class="token punctuation">:</span>iterator it <span class="token operator">=</span> v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> it <span class="token operator">!=</span> v<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">)</span> <span class="token punctuation">{</span>
-         <span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token operator">*</span>it <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-             it <span class="token operator">=</span> v<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>it<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//erase函数会让迭代器自动下移</span>
-         <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token punctuation">{</span>
-             it<span class="token operator">++</span><span class="token punctuation">;</span>
-         <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//插入</span>
-vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">v1</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-v<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//在某个位置插入100</span>
-v<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//在某个位置插入3个100</span>
-v<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> v1<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//在某个位置插入一段数据</span>
-————————————————
-版权声明：本文为CSDN博主「tangwei2014」的原创文章，遵循CC <span class="token number">4.0</span> BY<span class="token operator">-</span>SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>blog<span class="token punctuation">.</span>csdn<span class="token punctuation">.</span>net<span class="token operator">/</span>tangwei2014<span class="token operator">/</span>article<span class="token operator">/</span>details<span class="token operator">/</span><span class="token number">49311969</span></code></pre>
-
+                <h1 id="首先在SSR中设置"><a href="#首先在SSR中设置" class="headerlink" title="首先在SSR中设置"></a>首先在SSR中设置</h1><p><img src="/2020/05/12/xu-ni-ji-ji-cheng-zhu-ji-ke-yi-fan-qiang/1.png" alt></p>
+<p><img src="/2020/05/12/xu-ni-ji-ji-cheng-zhu-ji-ke-yi-fan-qiang/2.png" alt></p>
+<h1 id="查看win上的虚拟机ip"><a href="#查看win上的虚拟机ip" class="headerlink" title="查看win上的虚拟机ip"></a>查看win上的虚拟机ip</h1><p><img src="/2020/05/12/xu-ni-ji-ji-cheng-zhu-ji-ke-yi-fan-qiang/3.png" alt></p>
+<h1 id="虚拟机设置手动ip"><a href="#虚拟机设置手动ip" class="headerlink" title="虚拟机设置手动ip"></a>虚拟机设置手动ip</h1>
             </div>
             <hr/>
 
@@ -579,7 +499,7 @@ v<span class="token punctuation">.</span><span class="token function">insert</sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://liuhuaqiang.top/2020/05/07/vector-stl-rong-qi/">https://liuhuaqiang.top/2020/05/07/vector-stl-rong-qi/</a>
+                    <a href="https://liuhuaqiang.top/2020/05/12/xu-ni-ji-ji-cheng-zhu-ji-ke-yi-fan-qiang/">https://liuhuaqiang.top/2020/05/12/xu-ni-ji-ji-cheng-zhu-ji-ke-yi-fan-qiang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -617,12 +537,8 @@ v<span class="token punctuation">.</span><span class="token function">insert</sp
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/leetcode/">
-                                    <span class="chip bg-color">leetcode</span>
-                                </a>
-                            
-                                <a href="/tags/算法题/">
-                                    <span class="chip bg-color">算法题</span>
+                                <a href="/tags/学习小技巧/">
+                                    <span class="chip bg-color">学习小技巧</span>
                                 </a>
                             
                         </div>
@@ -790,34 +706,33 @@ v<span class="token punctuation">.</span><span class="token function">insert</sp
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/07/manacher-suan-fa/">
+                <a href="/2020/05/12/xu-ni-ji-ji-cheng-zhu-ji-ke-yi-fan-qiang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="马拉车算法">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="虚拟机继承主机可以翻墙">
                         
-                        <span class="card-title">马拉车算法</span>
+                        <span class="card-title">虚拟机继承主机可以翻墙</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            manacher 算法#include &lt;bits/stdc++.h>
-using namespace std;
+                            首先在SSR中设置
 
-string get_ss(string s){
-    string ss = "$#";
-    for(int 
+查看win上的虚拟机ip
+虚拟机设置手动ip
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -826,15 +741,12 @@ string get_ss(string s){
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
-                    </a>
-                    
-                    <a href="/tags/算法题/">
-                        <span class="chip bg-color">算法题</span>
+                    <a href="/tags/学习小技巧/">
+                        <span class="chip bg-color">学习小技巧</span>
                     </a>
                     
                 </div>
@@ -848,31 +760,31 @@ string get_ss(string s){
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/07/zhi-chu-xian-yi-ci-de-shu/">
+                <a href="/2020/05/11/50-pow-x-n/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="只出现一次的数">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="50.pow(x,n)">
                         
-                        <span class="card-title">只出现一次的数</span>
+                        <span class="card-title">50.pow(x,n)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            只出现一次的数136. 只出现一次的数字/*
-给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
-输入: [2,2,1]
-输出: 1
+                            50. Pow(x, n)难度中等333
+实现 pow(x, n) ，即计算 x 的 n 次幂函数。
+示例 1:
+输入: 2.00000, 10
+输出: 1024.00000
 示例 2:
-
-输入: [4,1,2,1,2]
-输出: 
+输入: 2.10000, 3
+输出: 9.26100
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-11
                             </span>
                         <span class="publish-author">
                             
@@ -889,8 +801,8 @@ string get_ss(string s){
                         <span class="chip bg-color">leetcode</span>
                     </a>
                     
-                    <a href="/tags/算法题/">
-                        <span class="chip bg-color">算法题</span>
+                    <a href="/tags/算法/">
+                        <span class="chip bg-color">算法</span>
                     </a>
                     
                 </div>

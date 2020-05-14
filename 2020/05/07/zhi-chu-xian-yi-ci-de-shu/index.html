@@ -475,7 +475,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="只出现一次的数"><a href="#只出现一次的数" class="headerlink" title="只出现一次的数"></a>只出现一次的数</h1><h4 id="136-只出现一次的数字"><a href="#136-只出现一次的数字" class="headerlink" title="136. 只出现一次的数字"></a><a href="https://leetcode-cn.com/problems/single-number/" target="_blank" rel="noopener">136. 只出现一次的数字</a></h4><pre class=" language-c++"><code class="language-c++">/*
+                <h1 id="只出现一次的数"><a href="#只出现一次的数" class="headerlink" title="只出现一次的数"></a>只出现一次的数</h1><h4 id="136-只出现一次的数字"><a href="#136-只出现一次的数字" class="headerlink" title="136. 只出现一次的数字"></a><a href="https://leetcode-cn.com/problems/single-number/" target="_blank" rel="noopener">136. 只出现一次的数字</a></h4><pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*
 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
 输入: [2,2,1]
 输出: 1
@@ -483,16 +483,16 @@
 
 输入: [4,1,2,1,2]
 输出: 4
-*/class Solution {
-public:
-    int singleNumber(vector<int>& nums) {
-        int ans = 0;
-        for(int i = 0;i<nums.size();i++){
-            ans^=nums[i];
-        }
-        return ans;
-    }
-};</code></pre>
+*/</span>class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    <span class="token keyword">int</span> <span class="token function">singleNumber</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            ans<span class="token operator">^</span><span class="token operator">=</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <h4 id="面试题56-II-数组中数字出现的次数-II"><a href="#面试题56-II-数组中数字出现的次数-II" class="headerlink" title="面试题56 - II. 数组中数字出现的次数 II"></a><a href="https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/" target="_blank" rel="noopener">面试题56 - II. 数组中数字出现的次数 II</a></h4><p><img src="https://pic.leetcode-cn.com/28f2379be5beccb877c8f1586d8673a256594e0fc45422b03773b8d4c8418825-Picture1.png" alt="Picture1.png"></p>
 <pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*
 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现三次。找出那个只出现了一次的元素。
@@ -527,41 +527,41 @@ public<span class="token punctuation">:</span>
         <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
-<h4 id="260-只出现一次的数字-III"><a href="#260-只出现一次的数字-III" class="headerlink" title="260. 只出现一次的数字 III"></a><a href="https://leetcode-cn.com/problems/single-number-iii/" target="_blank" rel="noopener">260. 只出现一次的数字 III</a></h4><pre class=" language-c++"><code class="language-c++">/*
+<h4 id="260-只出现一次的数字-III"><a href="#260-只出现一次的数字-III" class="headerlink" title="260. 只出现一次的数字 III"></a><a href="https://leetcode-cn.com/problems/single-number-iii/" target="_blank" rel="noopener">260. 只出现一次的数字 III</a></h4><pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*
 给定一个整数数组 nums，其中恰好有两个元素只出现一次，其余所有元素均出现两次。 找出只出现一次的那两个元素。
 输入: [1,2,1,3,2,5]
 输出: [3,5]
-*/
-class Solution {
-public:
-    vector<int> singleNumber(vector<int>& nums) {
-        vector<int> ret;
-        int ans = 0;
-        for(int i = 0;i<nums.size();i++){
-            ans^=nums[i];
-        }
-        int x = 0;
-        while((1<<x & ans) ==0){
-            x++;
-        }
-        cout<<x<<endl;
+*/</span>
+class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">singleNumber</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> ret<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            ans<span class="token operator">^</span><span class="token operator">=</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span>x <span class="token operator">&amp;</span> ans<span class="token punctuation">)</span> <span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            x<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        cout<span class="token operator">&lt;&lt;</span>x<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
 
-        int ret1 = 0;
-        int ret2 = 0;
-        for(int i = 0;i<nums.size();i++){
-            if(nums[i] & (1<<x)){
-                ret1^=nums[i];
-            }
-            else{
-                ret2^=nums[i];
-            }
-        }
-        ret.push_back(ret1);
-        ret.push_back(ret2);
+        <span class="token keyword">int</span> ret1 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> ret2 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                ret1<span class="token operator">^</span><span class="token operator">=</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span><span class="token punctuation">{</span>
+                ret2<span class="token operator">^</span><span class="token operator">=</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        ret<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>ret1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ret<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>ret2<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        return ret;
-    }
-};</code></pre>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
@@ -854,25 +854,24 @@ vector下尾部添加或者删除元素非常快，但在中间或头部插入�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/07/dui-pai-xu/">
+                <a href="/2020/05/07/kuai-su-mi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="堆排序">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="快速幂">
                         
-                        <span class="card-title">堆排序</span>
+                        <span class="card-title">快速幂</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            堆排序视频教程
-![1.png)
-
-#include&lt;bits/stdc++.h>
-using namespace std;
-void swap(int arr[],int i,int j){
-    int temp = arr[i
+                            ll quick_pow(ll a, ll b, ll mod) {
+    ll ans = 1;
+    while (b)
+    {
+        if (b &amp; 1) ans = (ans*a) % mod;
+     
                         
                     </div>
                     <div class="publish-info">
