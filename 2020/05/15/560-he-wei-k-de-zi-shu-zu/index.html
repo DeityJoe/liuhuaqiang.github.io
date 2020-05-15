@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="23. 合并K个排序链表, 未闻丶死讯的博客">
+    <meta name="keywords" content="560.和为K的子数组, 未闻丶死讯的博客">
     <meta name="description" content="菜鸡博客，大佬勿喷">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>23. 合并K个排序链表 | 未闻丶死讯的博客</title>
+    <title>560.和为K的子数组 | 未闻丶死讯的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/25.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">23. 合并K个排序链表</h1>
+                    <h1 class="description center-align post-title">560.和为K的子数组</h1>
                 </div>
             </div>
         </div>
@@ -459,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-07
+                    2020-05-15
                 </div>
                 
 
@@ -475,52 +475,47 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="23-合并K个排序链表"><a href="#23-合并K个排序链表" class="headerlink" title="23. 合并K个排序链表"></a><a href="https://leetcode-cn.com/problems/merge-k-sorted-lists/" target="_blank" rel="noopener">23. 合并K个排序链表</a></h4><p>合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。</p>
-<p>示例:</p>
-<p>输入:<br>[<br>  1-&gt;4-&gt;5,<br>  1-&gt;3-&gt;4,<br>  2-&gt;6<br>]<br>输出: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</p>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/merge-k-sorted-lists" target="_blank" rel="noopener">https://leetcode-cn.com/problems/merge-k-sorted-lists</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-    <span class="token keyword">public</span> ListNode <span class="token function">mergeKLists</span><span class="token punctuation">(</span>ListNode<span class="token punctuation">[</span><span class="token punctuation">]</span> lists<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        ListNode ret<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">99999999</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        ListNode head<span class="token operator">=</span>ret<span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>lists<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>lists<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                head <span class="token operator">=</span> <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>head<span class="token punctuation">,</span>lists<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <h4 id="560-和为K的子数组"><a href="#560-和为K的子数组" class="headerlink" title="560. 和为K的子数组"></a><a href="https://leetcode-cn.com/problems/subarray-sum-equals-k/" target="_blank" rel="noopener">560. 和为K的子数组</a></h4><p>给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。</p>
+<p>示例 1 :</p>
+<p>输入:nums = [1,1,1], k = 2<br>输出: 2 , [1,1] 与 [1,1] 为两种不同的情况。<br>说明 :</p>
+<p>数组的长度为 [1, 20,000]。<br>数组中元素的范围是 [-1000, 1000] ，且整数 k 的范围是 [-1e7, 1e7]</p>
+<p><img src="https://i.imgur.com/NXZJujY.png" alt></p>
+<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/*
+我们可以基于方法一利用数据结构进行进一步的优化，我们知道方法一的瓶颈在于对每个 ii，我们需要枚举所有的 jj 来判断是否符合条件，这一步是否可以优化呢？答案是可以的。
+
+我们定义preli为0..2]里所有数的和，则prei可以由preli- 1] 递推而来，即:
+pre[i]= pre[i- 1] + nums[i]
+那么[j..i] 这个子数组和为k」这个条件我们可以转化为
+pre[i]- pre[j- 1]==k
+简单移项可得符合条件的下标j需要满足
+pre[j- 1]== pre[i] - k:
+所以我们考虑以i结尾的和为ke的连续子数组个数时只要统计有多少个前缀和为pre[i]- k的pre[j]即可。我们建立哈希
+表mp,以和为键,出现次数为对应的值,记录pre[i]出现的次数,从左往右边更新mp边计算答案,那么以i结尾的答
+案mp[pre[]一k]即可在0(1)时间内得到。后的答案即为所有下标结尾的和为k的子数组个数之和。
+需要注意的是，从左往右边更新边计算的时候已经保证了mp[pre[i] - k] 里记录的pre[j] 的下标范围是0≤j≤i.同
+时，由于pre[i] 的计算只与前一项的答案有关,因此我们可以不用建立pre数组，直接用pre量来记录pre[i - 1] 的答
+案即可。
+
+
+*/</span>
+class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    <span class="token keyword">int</span> <span class="token function">subarraySum</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span> mp<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> ret <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        mp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            ans<span class="token operator">+</span><span class="token operator">=</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>mp<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>ans<span class="token operator">-</span>k<span class="token punctuation">)</span><span class="token operator">!=</span>mp<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                ret<span class="token operator">+</span><span class="token operator">=</span>mp<span class="token punctuation">[</span>ans<span class="token operator">-</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span>
+            mp<span class="token punctuation">[</span>ans<span class="token punctuation">]</span><span class="token operator">++</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> ret<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> ListNode <span class="token function">mergeTwoLists</span><span class="token punctuation">(</span>ListNode l1<span class="token punctuation">,</span> ListNode l2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        ListNode ret<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        ListNode head<span class="token operator">=</span>ret<span class="token punctuation">;</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>l1<span class="token operator">!=</span>null<span class="token operator">&amp;&amp;</span>l2<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>l1<span class="token punctuation">.</span>val<span class="token operator">></span>l2<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                head<span class="token punctuation">.</span>next <span class="token operator">=</span> l2<span class="token punctuation">;</span>
-                l2<span class="token operator">=</span>l2<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">else</span> <span class="token punctuation">{</span>
-                head<span class="token punctuation">.</span>next<span class="token operator">=</span>l1<span class="token punctuation">;</span>
-                l1<span class="token operator">=</span>l1<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            head <span class="token operator">=</span> head<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>l1<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            head<span class="token punctuation">.</span>next <span class="token operator">=</span> l1<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>l2<span class="token operator">!=</span>null<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            head<span class="token punctuation">.</span>next <span class="token operator">=</span> l2<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> ret<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
@@ -546,7 +541,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://liuhuaqiang.top/2020/05/07/23.he-bing-k-ge-pai-xu-lian-biao/">https://liuhuaqiang.top/2020/05/07/23.he-bing-k-ge-pai-xu-lian-biao/</a>
+                    <a href="https://liuhuaqiang.top/2020/05/15/560-he-wei-k-de-zi-shu-zu/">https://liuhuaqiang.top/2020/05/15/560-he-wei-k-de-zi-shu-zu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -757,32 +752,32 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/07/445.liang-shu-xiang-jia-ii/">
+                <a href="/2020/05/15/560-he-wei-k-de-zi-shu-zu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="445. 两数相加 II">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="560.和为K的子数组">
                         
-                        <span class="card-title">445. 两数相加 II</span>
+                        <span class="card-title">560.和为K的子数组</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            445. 两数相加 II给你两个 非空 链表来代表两个非负整数。数字最高位位于链表开始位置。它们的每个节点只存储一位数字。将这两数相加会返回一个新的链表。
-你可以假设除了数字 0 之外，这两个数字都不会以零开头。
-进阶：
-如果输入链表不能修
+                            560. 和为K的子数组给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。
+示例 1 :
+输入:nums = [1,1,1], k = 2输出: 2 , [1,1] 与 [1,1] 为两种不同的情况。说明 :
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -791,6 +786,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -813,25 +809,27 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/07/1376.tong-zhi-suo-you-yuan-gong-suo-xu-de-shi-jian/">
+                <a href="/2020/05/12/xu-ni-ji-ji-cheng-zhu-ji-ke-yi-fan-qiang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="1376. 通知所有员工所需的时间">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="虚拟机继承主机可以翻墙">
                         
-                        <span class="card-title">1376. 通知所有员工所需的时间</span>
+                        <span class="card-title">虚拟机继承主机可以翻墙</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1376. 通知所有员工所需的时间公司里有 n 名员工，每个员工的 ID 都是独一无二的，编号从 0 到 n - 1。公司的总负责人通过 headID 进行标识。
-在 manager 数组中，每个员工都有一个直属负责人，其中 manager
+                            首先在SSR中设置
+
+查看win上的虚拟机ip
+虚拟机设置手动ip
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-12
                             </span>
                         <span class="publish-author">
                             
@@ -844,12 +842,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
-                    </a>
-                    
-                    <a href="/tags/算法题/">
-                        <span class="chip bg-color">算法题</span>
+                    <a href="/tags/学习小技巧/">
+                        <span class="chip bg-color">学习小技巧</span>
                     </a>
                     
                 </div>
