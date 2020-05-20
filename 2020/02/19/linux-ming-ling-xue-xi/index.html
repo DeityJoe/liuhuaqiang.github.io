@@ -553,6 +553,9 @@ netstat -an|head -5
 <h2 id="保存设置"><a href="#保存设置" class="headerlink" title="保存设置"></a>保存设置</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">service</span> iptables save 保存设置</code></pre>
 <p>以下是linux打开端口命令的使用方法。 </p>
 <p>nc -lp 23 &amp;(打开23端口，即telnet)<br>netstat -an | grep 23 (查看是否打开23端口) </p>
+<h2 id="普通用户可以访问root目录"><a href="#普通用户可以访问root目录" class="headerlink" title="普通用户可以访问root目录"></a>普通用户可以访问root目录</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">su</span>
+输入密码后
+<span class="token function">sudo</span> <span class="token function">chmod</span> 777 /root  <span class="token comment" spellcheck="true">#暴力</span></code></pre>
 
             </div>
             <hr/>

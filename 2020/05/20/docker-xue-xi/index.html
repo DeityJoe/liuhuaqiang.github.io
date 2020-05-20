@@ -475,9 +475,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Docker-学习"><a href="#Docker-学习" class="headerlink" title="Docker 学习"></a>Docker 学习</h1><h2 id="开启Docker服务"><a href="#开启Docker服务" class="headerlink" title="开启Docker服务"></a>开启Docker服务</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">service</span> docker start</code></pre>
+                <h1 id="Docker-学习"><a href="#Docker-学习" class="headerlink" title="Docker 学习"></a>Docker 学习</h1><h2 id="开启Docker服务"><a href="#开启Docker服务" class="headerlink" title="开启Docker服务"></a>开启Docker服务</h2><pre class=" language-bash"><code class="language-bash"><span class="token function">service</span> docker start
+
+
+systemctl daemon-reload
+systemctl restart docker.service</code></pre>
 <h2 id="镜像开始运行"><a href="#镜像开始运行" class="headerlink" title="镜像开始运行"></a>镜像开始运行</h2><pre class=" language-bash"><code class="language-bash">docker start <span class="token function">id</span></code></pre>
 <h2 id="进入镜像"><a href="#进入镜像" class="headerlink" title="进入镜像"></a>进入镜像</h2><pre class=" language-bash"><code class="language-bash">docker attach <span class="token function">id</span></code></pre>
+<h2 id="重启镜像"><a href="#重启镜像" class="headerlink" title="重启镜像"></a>重启镜像</h2><pre class=" language-bash"><code class="language-bash">docker restart <span class="token function">id</span></code></pre>
 <h2 id="停止镜像"><a href="#停止镜像" class="headerlink" title="停止镜像"></a>停止镜像</h2><pre class=" language-bash"><code class="language-bash">docker stop <span class="token function">id</span></code></pre>
 <h2 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h2><pre class=" language-bash"><code class="language-bash">docker rmi <span class="token function">id</span>
 可能要先删除容器
@@ -488,7 +493,8 @@ docker rmi -f <span class="token function">id</span></code></pre>
 <h2 id="最常用的镜像"><a href="#最常用的镜像" class="headerlink" title="最常用的镜像"></a>最常用的镜像</h2><pre class=" language-bash"><code class="language-bash">docker pull ubuntu
 docker run -it -v ~/docker-ubuntu:/root/docker-ubuntu --name ubuntu ubuntu
 docker run -it -v  本机目录挂载   到   docker目录       --name 新的命名 打开的镜像名字
--p 8080:8888  把主机上的8080端口,转发到docker上的8888端口</code></pre>
+-p 8080:8888  把主机上的8080端口,转发到docker上的8888端口
+-d 后台运行</code></pre>
 <h2 id="保存镜像文件"><a href="#保存镜像文件" class="headerlink" title="保存镜像文件"></a>保存镜像文件</h2><pre class=" language-bash"><code class="language-bash">由于容器内的修改不会自动保存，所以需要对容器进行一个保存。使用docker <span class="token function">ps</span> -a 查看容器id并使用docker commit 保存镜像
 docker commit <span class="token function">id</span> name</code></pre>
 <h1 id="查看当前的镜像"><a href="#查看当前的镜像" class="headerlink" title="查看当前的镜像"></a>查看当前的镜像</h1><pre class=" language-bash"><code class="language-bash">docker images</code></pre>
@@ -544,6 +550,39 @@ docker <span class="token function">ps</span> -a</code></pre>
 ————————————————
 版权声明：本文为CSDN博主「GO小胖」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/yiwanxingchena/java/article/details/83900284</code></pre>
+<h1 id="安装可视化界面的docker管理"><a href="#安装可视化界面的docker管理" class="headerlink" title="安装可视化界面的docker管理"></a>安装可视化界面的docker管理</h1><p>为了更好的观察Docker运行状态，我们采用Portainer工具进行可视化，下面是部署过程总结：</p>
+<p>环境：</p>
+<p>Liunx:CentOS Linux release 7.6.1810 (Core)</p>
+<p>Docker:19.03.5（备注：默认版本存在问题，升级可参考<a href="https://www.cnblogs.com/Bug-Hunter/p/12022491.html" target="_blank" rel="noopener">docker升级步骤及注意事项</a>）</p>
+<p>部署步骤：</p>
+<p>1、查询当前Portainer镜像，选择start值比较高的</p>
+<p>命令：</p>
+<p>docker search portainer</p>
+<p>2、下载指定portainer镜像</p>
+<p>命令：</p>
+<p>docker pull portainer/portainer</p>
+<p>3、本次只部署单机版，命令如下</p>
+<p>docker run -d -p 9000:9000 –restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data –name prtainer-test portainer/portainer</p>
+<p>如下图：</p>
+<p><img src="https://img2018.cnblogs.com/blog/954348/201912/954348-20191211153203115-79465651.png" alt="img"></p>
+<p><img src="https://img2018.cnblogs.com/blog/954348/201912/954348-20191211152823762-1999879810.png" alt="img"></p>
+<p>参数说明：<br>-d：容器在后台运行；<br>-p 9000:9000 ：宿主机9000端口映射容器中的9000端口<br>–restart 标志会检查容器的退出代码，并据此来决定是否要重启容器，默认是不会重启。</p>
+<p>–restart=always：自动重启该容器<br>-v /var/run/docker.sock:/var/run/docker.sock ：把宿主机的Docker守护进程(Docker daemon)默认监听的Unix域套接字挂载到容器中<br>-v portainer_data:/data ：把宿主机portainer_data数据卷挂载到容器/data目录<br>–name prtainer-test ： 给容器起名为portainer-test</p>
+<p>4、使用docker ps查看进程，如下所示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/954348/201912/954348-20191211153234806-1638544994.png" alt="img"></p>
+<p> 如果需要汉化，可以下载<a href="https://pan.baidu.com/s/1BLXMSmJFcgESeNMhQL26Mg&shfl=sharepset" target="_blank" rel="noopener">汉化包</a>（提取码：6vjr）<a href="https://liuhuaqiang.lanzous.com/icu3qwd，之后解压，并将解压后的public文件夹上传到centos系统的根目录下，如下图所示：" target="_blank" rel="noopener">https://liuhuaqiang.lanzous.com/icu3qwd，之后解压，并将解压后的public文件夹上传到centos系统的根目录下，如下图所示：</a></p>
+<p><img src="https://img2018.cnblogs.com/blog/954348/201912/954348-20191211154002659-629104571.png" alt="img"></p>
+<p>然后执行以下命令：</p>
+<p>docker run -d -p 9000:9000 –restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data -v /public:/public –name prtainer-test portainer/portainer（如果已部署，需要将之前的容器删除）</p>
+<p>5、Portainer的web页面登录</p>
+<p>在浏览器输入部署服务器的IP:9000，回车，显示如下界面：</p>
+<p><img src="https://img2018.cnblogs.com/blog/954348/201912/954348-20191211154735320-1919071871.png" alt="img"></p>
+<p> 由于是本地docker，所有选择local</p>
+<p><img src="https://img2018.cnblogs.com/blog/954348/201912/954348-20191211155241808-1937877821.png" alt="img"></p>
+<p> 之后点击“Connect”，成功后跳转到主页界面（汉化后），如下图：</p>
+<p><img src="https://img2018.cnblogs.com/blog/954348/201912/954348-20191211154943016-14709007.png" alt="img"></p>
+<p> 点击“local”，进入该docker内，展示相关容器、堆栈、镜像等信息，如下图所示：</p>
+<p><img src="https://img2018.cnblogs.com/blog/954348/201912/954348-20191211155743452-2143259224.png" alt="img"></p>
 
             </div>
             <hr/>

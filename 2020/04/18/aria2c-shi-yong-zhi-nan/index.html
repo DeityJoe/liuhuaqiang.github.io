@@ -593,6 +593,13 @@ http://ariang.mayswind.net/latest/
     <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token string">"trackerslist"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
         os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"rd /s/q trackerslist"</span><span class="token punctuation">)</span>
 </code></pre>
+<p>docker 版本的使用</p>
+<pre class=" language-bash"><code class="language-bash">docker pull p3terx/aria2-pro  //拉取镜像
+docker run -d -it -p 6800:6800 -v ~/aria2-config:/config  -v ~/aria2-downloads:/downloads -e RPC_SECRET<span class="token operator">=</span>123456 -e RPC_PORT<span class="token operator">=</span>6800 -e LISTEN_PORT<span class="token operator">=</span>6888 --name aria2-pro docker.io/p3terx/aria2-pro  //运行
+
+
+教程在这:
+https://p3terx.com/archives/docker-aria2-pro.html</code></pre>
 
             </div>
             <hr/>
