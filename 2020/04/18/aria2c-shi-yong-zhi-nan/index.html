@@ -439,6 +439,10 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
                             <a href="/tags/学习小技巧/">
                                 <span class="chip bg-color">学习小技巧</span>
                             </a>
@@ -534,6 +538,61 @@ aria2c --max-overall-download-limit<span class="token operator">=</span>300k -s1
 <pre class=" language-bash"><code class="language-bash">aria2c -i test-aria2.txt</code></pre>
 <h1 id="win10使用aria2"><a href="#win10使用aria2" class="headerlink" title="win10使用aria2"></a>win10使用aria2</h1><p>下载win10的,和以上linux操作一致,不过有GUI版的</p>
 <p><a href="https://www.lanzous.com/ibk87wd" target="_blank" rel="noopener">下载地址</a></p>
+<p>使用方法：<br>方法一：单文件下载<br>aria2c.exe -c -s 5 -d F:\安装软件 URL<br>-c：开启断点续传<br>-s 5：设置5线程<br>-d F:\安装软件：设置下载后存储到F:\安装软件<br>URL：要下载文件的地址，<a href="http://xxx.com/xxx.zip" target="_blank" rel="noopener">http://xxx.com/xxx.zip</a> 这种。</p>
+<p>方法二：多文件同时下载<br>aria2c.exe -c -s 5 -d F:\安装软件 -j 2 -i url.txt<br>-j 2：设置同时下载2个任务<br>-i url.txt：从url.txt读取下载任务。<br>针对url.txt，只需要把要下载的文件地址以每行一条的方式写进去即可。</p>
+<pre class=" language-bash"><code class="language-bash">下载完全配置aira2 一键脚本
+<span class="token function">wget</span> -N git.io/aria2.sh <span class="token operator">&amp;&amp;</span> <span class="token function">chmod</span> +x aria2.sh <span class="token operator">&amp;&amp;</span> ./aria2.sh
+
+然后到这个网址
+http://ariang.mayswind.net/latest/
+配置一下
+</code></pre>
+<p><img src="https://i.imgur.com/3YuMQbD.png" alt></p>
+<p>就可以下载了</p>
+<p>一键配置脚本</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">wget</span> -N git.io/aria2.sh <span class="token operator">&amp;&amp;</span> <span class="token function">chmod</span> +x aria2.sh <span class="token operator">&amp;&amp;</span> ./aria2.sh</code></pre>
+<p>然后到这个网址<br><a href="http://ariang.mayswind.net/latest/#!/downloading" target="_blank" rel="noopener">http://ariang.mayswind.net/latest/#!/downloading</a><br>github:<a href="https://github.com/anlen123/aria2.sh" target="_blank" rel="noopener">https://github.com/anlen123/aria2.sh</a><br>进行配置<br><img src="https://i.imgur.com/wJAQXmH.png" alt></p>
+<p>下载bt的话,,需要在配置文件后面加服务器连接<br>我写了一个爬虫来搞它</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> time
+<span class="token keyword">def</span> <span class="token function">openBT</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    f <span class="token operator">=</span> open<span class="token punctuation">(</span>path<span class="token punctuation">)</span>
+    txt <span class="token operator">=</span> list<span class="token punctuation">(</span>filter<span class="token punctuation">(</span>None<span class="token punctuation">,</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># print(len(txt))</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"bt_temp.txt"</span><span class="token punctuation">,</span><span class="token string">'a+'</span><span class="token punctuation">)</span><span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        <span class="token keyword">for</span> x <span class="token keyword">in</span> txt<span class="token punctuation">:</span>
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token string">","</span><span class="token punctuation">)</span>
+    f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    url <span class="token operator">=</span> <span class="token string">"https://github.com/ngosang/trackerslist.git"</span>
+    <span class="token keyword">if</span> <span class="token operator">not</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token string">"trackerslist"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"git clone https://github.com/ngosang/trackerslist.git"</span><span class="token punctuation">)</span>
+    time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># os.system("dir")</span>
+    os<span class="token punctuation">.</span>chdir<span class="token punctuation">(</span><span class="token string">"trackerslist"</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># os.system("dir")</span>
+    txt_list <span class="token operator">=</span> os<span class="token punctuation">.</span>listdir<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> file <span class="token keyword">in</span> txt_list<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> file<span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token string">".txt"</span><span class="token punctuation">)</span> <span class="token operator">and</span> file<span class="token punctuation">.</span>startswith<span class="token punctuation">(</span><span class="token string">"trackers"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># print(file)</span>
+            openBT<span class="token punctuation">(</span>str<span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    f <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"bt_temp.txt"</span><span class="token punctuation">)</span>
+    a <span class="token operator">=</span>list<span class="token punctuation">(</span>filter<span class="token punctuation">(</span>None<span class="token punctuation">,</span>list<span class="token punctuation">(</span>set<span class="token punctuation">(</span>f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    os<span class="token punctuation">.</span>chdir<span class="token punctuation">(</span><span class="token string">".."</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token string">"bt.txt"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"del bt.txt"</span><span class="token punctuation">)</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"bt.txt"</span><span class="token punctuation">,</span> <span class="token string">'a+'</span><span class="token punctuation">)</span><span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"bt-tracker="</span><span class="token punctuation">)</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"bt.txt"</span><span class="token punctuation">,</span><span class="token string">'a+'</span><span class="token punctuation">)</span><span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        <span class="token keyword">for</span> x <span class="token keyword">in</span> a<span class="token punctuation">:</span>
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>x<span class="token operator">+</span><span class="token string">","</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token string">"trackerslist"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">"rd /s/q trackerslist"</span><span class="token punctuation">)</span>
+</code></pre>
 
             </div>
             <hr/>
@@ -596,6 +655,10 @@ aria2c --max-overall-download-limit<span class="token operator">=</span>300k -s1
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
+                            
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
+                                </a>
                             
                                 <a href="/tags/学习小技巧/">
                                     <span class="chip bg-color">学习小技巧</span>
@@ -803,6 +866,10 @@ GitHub是一个面向开源及私有软件项目的托管平台，因为只支�
                     
                     <a href="/tags/学习小技巧/">
                         <span class="chip bg-color">学习小技巧</span>
+                    </a>
+                    
+                    <a href="/tags/github/">
+                        <span class="chip bg-color">github</span>
                     </a>
                     
                 </div>
