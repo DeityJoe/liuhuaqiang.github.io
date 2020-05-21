@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="572. 另一个树的子树, 未闻丶死讯的博客">
+    <meta name="keywords" content="在python里调用c语言代码, 未闻丶死讯的博客">
     <meta name="description" content="菜鸡博客，大佬勿喷">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>572. 另一个树的子树 | 未闻丶死讯的博客</title>
+    <title>在python里调用c语言代码 | 未闻丶死讯的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">572. 另一个树的子树</h1>
+                    <h1 class="description center-align post-title">在python里调用c语言代码</h1>
                 </div>
             </div>
         </div>
@@ -439,12 +439,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/leetcode/">
-                                <span class="chip bg-color">leetcode</span>
+                            <a href="/tags/学习小技巧/">
+                                <span class="chip bg-color">学习小技巧</span>
                             </a>
                         
-                            <a href="/tags/算法题/">
-                                <span class="chip bg-color">算法题</span>
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
                             </a>
                         
                     </div>
@@ -459,7 +463,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-07
+                    2020-05-21
                 </div>
                 
 
@@ -475,57 +479,55 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="572-另一个树的子树"><a href="#572-另一个树的子树" class="headerlink" title="572. 另一个树的子树"></a><a href="https://leetcode-cn.com/problems/subtree-of-another-tree/" target="_blank" rel="noopener">572. 另一个树的子树</a></h4><p>给定两个非空二叉树 s 和 t，检验 s 中是否包含和 t 具有相同结构和节点值的子树。s 的一个子树包括 s 的一个节点和这个节点的所有子孙。s 也可以看做它自身的一棵子树。</p>
-<p>示例 1:<br>给定的树 s:</p>
-<pre><code>     3
-    / \
-   4   5
-  / \
- 1   2</code></pre><p>给定的树 t：</p>
-<pre><code>   4 
-  / \
- 1   2</code></pre><p>返回 true，因为 t 与 s 的一个子树拥有相同的结构和节点值。</p>
-<p>示例 2:<br>给定的树 s：</p>
-<pre><code>     3
-    / \
-   4   5
-  / \
- 1   2
-    /
-   0</code></pre><p>给定的树 t：</p>
-<pre><code>   4
-  / \
- 1   2</code></pre><p>返回 false。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/subtree-of-another-tree" target="_blank" rel="noopener">https://leetcode-cn.com/problems/subtree-of-another-tree</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */</span>
-class Solution <span class="token punctuation">{</span>
-public<span class="token punctuation">:</span>
-    bool <span class="token function">check</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> a<span class="token punctuation">,</span> TreeNode<span class="token operator">*</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token operator">==</span><span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> b<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> true<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token operator">==</span><span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> b<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token operator">||</span>  <span class="token punctuation">(</span>a<span class="token operator">!=</span><span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> b<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>a<span class="token operator">-></span>val<span class="token operator">!=</span>b<span class="token operator">-></span>val<span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> false<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token function">check</span><span class="token punctuation">(</span>a<span class="token operator">-></span>left<span class="token punctuation">,</span>b<span class="token operator">-></span>left<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">check</span><span class="token punctuation">(</span>a<span class="token operator">-></span>right<span class="token punctuation">,</span>b<span class="token operator">-></span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p>c语言代码</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token keyword">int</span>  <span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span><span class="token number">100000</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    sum<span class="token operator">+</span><span class="token operator">=</span>i<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>需要用gcc 编译</p>
+<p>此c语言的文件名为cName</p>
+<p>编程成的so文件的名字为xName</p>
+<pre class=" language-bash"><code class="language-bash">gcc -shared -Wl,-soname,xName -o Xname.so -fPIC cName</code></pre>
+<p>编译命令我写了个python脚本</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> os
+file_name <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"输入你要转换的c语言的文件名:"</span><span class="token punctuation">)</span>
+file_name2 <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"编译成的so文件的名字:"</span><span class="token punctuation">)</span>
+shell <span class="token operator">=</span> f<span class="token string">"gcc -shared -Wl,-soname,{file_name2} -o {file_name2}.dll -fPIC {file_name}"</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>shell<span class="token punctuation">)</span>
+os<span class="token punctuation">.</span>system<span class="token punctuation">(</span>shell<span class="token punctuation">)</span></code></pre>
+<p>编译成.so文件后</p>
+<p>写python代码</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> ctypes
 
-    bool <span class="token function">dfs</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> a<span class="token punctuation">,</span> TreeNode<span class="token operator">*</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token keyword">return</span> false<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token function">check</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">dfs</span><span class="token punctuation">(</span>a<span class="token operator">-></span>left<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">dfs</span><span class="token punctuation">(</span>a<span class="token operator">-></span>right<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    bool <span class="token function">isSubtree</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> s<span class="token punctuation">,</span> TreeNode<span class="token operator">*</span> t<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
-        <span class="token keyword">return</span> <span class="token function">dfs</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+result <span class="token operator">=</span> ctypes<span class="token punctuation">.</span>cdll<span class="token punctuation">.</span>LoadLibrary<span class="token punctuation">(</span><span class="token string">'./add.so'</span><span class="token punctuation">)</span>
+
+result<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">/</span><span class="token operator">*</span>
+<span class="token number">705082704</span>
+<span class="token number">705082704</span>
+<span class="token operator">*</span><span class="token operator">/</span></code></pre>
+<h1 id="Win"><a href="#Win" class="headerlink" title="Win"></a>Win</h1><p>编译命令的.so改为.dll</p>
+<pre class=" language-bash"><code class="language-bash">gcc -shared -Wl,-soname,xName -o Xname.dll -fPIC cName</code></pre>
+<p>会报错</p>
+<p>原因: 此.dll文件也需要.dll依赖,,所以</p>
+<p>Win 安装cygwin ,这是一个软件,</p>
+<p>输入命令查看差哪些依赖</p>
+<pre class=" language-c"><code class="language-c">ldd add<span class="token punctuation">.</span>dll
+<span class="token comment" spellcheck="true">/*
+ldd add.dll
+        ntdll.dll => /cygdrive/c/Windows/SYSTEM32/ntdll.dll (0x7ffe68360000)
+        KERNEL32.DLL => /cygdrive/c/Windows/System32/KERNEL32.DLL (0x7ffe66d20000)
+        KERNELBASE.dll => /cygdrive/c/Windows/System32/KERNELBASE.dll (0x7ffe652f0000)
+        apphelp.dll => /cygdrive/c/Windows/SYSTEM32/apphelp.dll (0x7ffe62fe0000)
+        add.dll => /cygdrive/e/python/cTopython/add.dll (0x71140000)
+*/</span></code></pre>
+<p>PS: 我现在没成功</p>
 
             </div>
             <hr/>
@@ -551,7 +553,7 @@ public<span class="token punctuation">:</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://liuhuaqiang.top/2020/05/07/572.ling-yi-ge-shu-de-zi-shu/">https://liuhuaqiang.top/2020/05/07/572.ling-yi-ge-shu-de-zi-shu/</a>
+                    <a href="https://liuhuaqiang.top/2020/05/21/zai-python-li-diao-yong-c-yu-yan-dai-ma/">https://liuhuaqiang.top/2020/05/21/zai-python-li-diao-yong-c-yu-yan-dai-ma/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -589,12 +591,16 @@ public<span class="token punctuation">:</span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/leetcode/">
-                                    <span class="chip bg-color">leetcode</span>
+                                <a href="/tags/学习小技巧/">
+                                    <span class="chip bg-color">学习小技巧</span>
                                 </a>
                             
-                                <a href="/tags/算法题/">
-                                    <span class="chip bg-color">算法题</span>
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
+                                </a>
+                            
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
                                 </a>
                             
                         </div>
@@ -762,36 +768,37 @@ public<span class="token punctuation">:</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/07/55.tiao-yue-you-xi/">
+                <a href="/2020/05/21/zai-python-li-diao-yong-c-yu-yan-dai-ma/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="55. 跳跃游戏">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="在python里调用c语言代码">
                         
-                        <span class="card-title">55. 跳跃游戏</span>
+                        <span class="card-title">在python里调用c语言代码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            55. 跳跃游戏难度中等643
-给定一个非负整数数组，你最初位于数组的第一个位置。
-数组中的每个元素代表你在该位置可以跳跃的最大长度。
-判断你是否能够到达最后一个位置。
-示例 1:
-输入: [2,3,1,1,4]
-输出: true
-解释: 
+                            Linuxc语言代码
+#include&lt;stdio.h>
+int  add(){
+    int sum = 0;
+    int i;
+    for(i = 1;i&lt;=100000;i++){
+    sum+=i;
+   
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -800,15 +807,20 @@ public<span class="token punctuation">:</span>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
+                    <a href="/tags/学习小技巧/">
+                        <span class="chip bg-color">学习小技巧</span>
                     </a>
                     
-                    <a href="/tags/算法题/">
-                        <span class="chip bg-color">算法题</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
@@ -822,29 +834,28 @@ public<span class="token punctuation">:</span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/07/83.shan-chu-pai-xu-lian-biao-zhong-de-chong-fu-yuan-su/">
+                <a href="/2020/05/20/1371-mei-ge-yuan-yin-bao-han-ou-shu-ci-de-zui-chang-zi-zi-fu-chuan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="83. 删除排序链表中的重复元素">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="1371.每个元音包含偶数次的最长子字符串">
                         
-                        <span class="card-title">83. 删除排序链表中的重复元素</span>
+                        <span class="card-title">1371.每个元音包含偶数次的最长子字符串</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            83. 删除排序链表中的重复元素给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。
-示例 1:
-输入: 1-&gt;1-&gt;2
-输出: 1-&gt;2示例 2:
-输入: 1-&gt;1-&gt;2-&gt;3-&gt;3
-输
+                            1371. 每个元音包含偶数次的最长子字符串给你一个字符串 s ，请你返回满足以下条件的最长子字符串的长度：每个元音字母，即 'a'，'e'，'i'，'o'，'u' ，在子字符串中都恰好出现了偶数次。
+
+示例 1：
+
+输入：s = "ele
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-20
                             </span>
                         <span class="publish-author">
                             
@@ -863,6 +874,10 @@ public<span class="token punctuation">:</span>
                     
                     <a href="/tags/算法题/">
                         <span class="chip bg-color">算法题</span>
+                    </a>
+                    
+                    <a href="/tags/hard/">
+                        <span class="chip bg-color">hard</span>
                     </a>
                     
                 </div>
