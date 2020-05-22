@@ -439,16 +439,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/学习小技巧/">
-                                <span class="chip bg-color">学习小技巧</span>
-                            </a>
-                        
                             <a href="/tags/linux/">
                                 <span class="chip bg-color">linux</span>
                             </a>
                         
                             <a href="/tags/python/">
                                 <span class="chip bg-color">python</span>
+                            </a>
+                        
+                            <a href="/tags/学习小技巧/">
+                                <span class="chip bg-color">学习小技巧</span>
                             </a>
                         
                     </div>
@@ -528,6 +528,63 @@ ldd add.dll
         add.dll => /cygdrive/e/python/cTopython/add.dll (0x71140000)
 */</span></code></pre>
 <p>PS: 我现在没成功</p>
+<h1 id="放大招Cython"><a href="#放大招Cython" class="headerlink" title="放大招Cython"></a>放大招Cython</h1><pre class=" language-bash"><code class="language-bash">pip <span class="token function">install</span> Cpython  //Anaconda自带</code></pre>
+<p>首先Win要安装vs2019,安装下面两个</p>
+<p><img src="https://i.imgur.com/nYDQHnu.png" alt="Imgur"></p>
+<p>准备工作就完成了</p>
+<p>首先新建一个fib.pyx文件,这个格式是c语言和python公共的格式</p>
+<p>cpdef c和python公用函数</p>
+<p>cdef c语言用函数</p>
+<p>def python语言函数</p>
+<pre class=" language-c"><code class="language-c">cpdef <span class="token keyword">int</span> <span class="token function">fib</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> n<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> n<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token keyword">return</span> <span class="token function">fib</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">fib</span><span class="token punctuation">(</span>n<span class="token number">-2</span><span class="token punctuation">)</span></code></pre>
+<p>新建setup.py文件</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> distutils<span class="token punctuation">.</span>core <span class="token keyword">import</span> setup
+<span class="token keyword">from</span> distutils<span class="token punctuation">.</span>extension <span class="token keyword">import</span> Extension
+<span class="token keyword">from</span> Cython<span class="token punctuation">.</span>Distutils <span class="token keyword">import</span> build_ext
+
+filename <span class="token operator">=</span> <span class="token string">'fib'</span>  <span class="token comment" spellcheck="true"># 源文件名 编译后的名字</span>
+full_filename <span class="token operator">=</span> <span class="token string">'fib.pyx'</span>  <span class="token comment" spellcheck="true"># 包含后缀的源文件名   编译前名字</span>
+
+setup<span class="token punctuation">(</span>
+    cmdclass<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'build_ext'</span><span class="token punctuation">:</span> build_ext<span class="token punctuation">}</span><span class="token punctuation">,</span>
+    ext_modules<span class="token operator">=</span><span class="token punctuation">[</span>Extension<span class="token punctuation">(</span>filename<span class="token punctuation">,</span> <span class="token punctuation">[</span>full_filename<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># 配置需要cython编译的源文件</span>
+<span class="token punctuation">)</span></code></pre>
+<p>然后在命令行里面</p>
+<pre class=" language-bash"><code class="language-bash"> python setup.py build_ext --inplace</code></pre>
+<p>会生成build文件夹和fib.cp37-win_amd64.pyd文件,</p>
+<p><img src="https://i.imgur.com/D7z8CRB.png" alt="Imgur"></p>
+<p>我们只需要导入fib包就可以使用了</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> fib
+<span class="token keyword">import</span> time
+
+t1 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+fib<span class="token punctuation">.</span>fib<span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">)</span>
+t2 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>t2<span class="token operator">-</span>t1<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">fib</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> n<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> n<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token keyword">return</span> fib<span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">+</span>fib<span class="token punctuation">(</span>n<span class="token number">-2</span><span class="token punctuation">)</span>
+
+t1 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+fib<span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">)</span>
+t2 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>t2<span class="token operator">-</span>t1<span class="token punctuation">)</span>
+
+<span class="token operator">/</span><span class="token operator">*</span>
+<span class="token number">0.726057767868042</span>
+<span class="token number">51.39848494529724</span>
+<span class="token operator">*</span><span class="token operator">/</span>
+<span class="token comment" spellcheck="true"># 你可以看看差距有点大,太大了</span></code></pre>
+<p>至此,,骚操作都完成了</p>
 
             </div>
             <hr/>
@@ -591,16 +648,16 @@ ldd add.dll
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/学习小技巧/">
-                                    <span class="chip bg-color">学习小技巧</span>
-                                </a>
-                            
                                 <a href="/tags/linux/">
                                     <span class="chip bg-color">linux</span>
                                 </a>
                             
                                 <a href="/tags/python/">
                                     <span class="chip bg-color">python</span>
+                                </a>
+                            
+                                <a href="/tags/学习小技巧/">
+                                    <span class="chip bg-color">学习小技巧</span>
                                 </a>
                             
                         </div>
@@ -768,37 +825,39 @@ ldd add.dll
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/21/zai-python-li-diao-yong-c-yu-yan-dai-ma/">
+                <a href="/2020/05/22/pycharm-lian-jie-dao-yuan-cheng-fu-wu-qi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="在python里调用c语言代码">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Pycharm连接到远程服务器">
                         
-                        <span class="card-title">在python里调用c语言代码</span>
+                        <span class="card-title">Pycharm连接到远程服务器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Linuxc语言代码
-#include&lt;stdio.h>
-int  add(){
-    int sum = 0;
-    int i;
-    for(i = 1;i&lt;=100000;i++){
-    sum+=i;
-   
+                            连接到SSH
+
+输入对的Ip端口,账号密码就可以连接了,
+需要改一下ssh中文,编码
+
+这样就可以正常显示中文了
+远程连接文件夹项目在本地我新建了一个名字叫做linux的文件夹,来储存服务器上的
+然后点击如图所示
+
+这里选择SFTP
+这里的
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-21
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-22
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -807,13 +866,8 @@ int  add(){
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/学习小技巧/">
-                        <span class="chip bg-color">学习小技巧</span>
-                    </a>
                     
                     <a href="/tags/linux/">
                         <span class="chip bg-color">linux</span>
@@ -821,6 +875,10 @@ int  add(){
                     
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/学习小技巧/">
+                        <span class="chip bg-color">学习小技巧</span>
                     </a>
                     
                 </div>
