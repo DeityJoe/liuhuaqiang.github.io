@@ -553,7 +553,31 @@ full_filename <span class="token operator">=</span> <span class="token string">'
 setup<span class="token punctuation">(</span>
     cmdclass<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'build_ext'</span><span class="token punctuation">:</span> build_ext<span class="token punctuation">}</span><span class="token punctuation">,</span>
     ext_modules<span class="token operator">=</span><span class="token punctuation">[</span>Extension<span class="token punctuation">(</span>filename<span class="token punctuation">,</span> <span class="token punctuation">[</span>full_filename<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true"># 配置需要cython编译的源文件</span>
-<span class="token punctuation">)</span></code></pre>
+<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">#  python setup.py build_ext --inplace</span></code></pre>
+<hr>
+<p>分割线</p>
+<p>还可以用第二种方法,推荐第二种</p>
+<p>直接纯用c语言写代码</p>
+<pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token keyword">int</span> <span class="token function">fib</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token function">fib</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">fib</span><span class="token punctuation">(</span>n<span class="token number">-2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+保存为<span class="token punctuation">.</span>h文件</code></pre>
+<p>再写一个.pyx文件</p>
+<pre class=" language-python"><code class="language-python">cdef extern <span class="token keyword">from</span> <span class="token string">"fib.h"</span><span class="token punctuation">:</span>
+    cdef int fib<span class="token punctuation">(</span>int n<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">fib_py</span><span class="token punctuation">(</span>int n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> fib<span class="token punctuation">(</span>n<span class="token punctuation">)</span></code></pre>
+<p>分割线结束</p>
+<hr>
 <p>然后在命令行里面</p>
 <pre class=" language-bash"><code class="language-bash"> python setup.py build_ext --inplace</code></pre>
 <p>会生成build文件夹和fib.cp37-win_amd64.pyd文件,</p>
@@ -585,6 +609,11 @@ t2 <span class="token operator">=</span> time<span class="token punctuation">.</
 <span class="token operator">*</span><span class="token operator">/</span>
 <span class="token comment" spellcheck="true"># 你可以看看差距有点大,太大了</span></code></pre>
 <p>至此,,骚操作都完成了</p>
+<p>PS : linux下用这个一定要装python-dev和gcc,当然python必须的</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># Centos</span>
+yum <span class="token function">install</span> python3-devel
+<span class="token comment" spellcheck="true"># Ubuntu</span>
+<span class="token function">apt-get</span> <span class="token function">install</span> python3-dev</code></pre>
 
             </div>
             <hr/>
