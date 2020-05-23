@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="820. 单词的压缩编码, 未闻丶死讯的博客">
+    <meta name="keywords" content="python里调用js代码, 未闻丶死讯的博客">
     <meta name="description" content="菜鸡博客，大佬勿喷">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>820. 单词的压缩编码 | 未闻丶死讯的博客</title>
+    <title>python里调用js代码 | 未闻丶死讯的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">820. 单词的压缩编码</h1>
+                    <h1 class="description center-align post-title">python里调用js代码</h1>
                 </div>
             </div>
         </div>
@@ -439,12 +439,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/leetcode/">
-                                <span class="chip bg-color">leetcode</span>
-                            </a>
-                        
-                            <a href="/tags/算法题/">
-                                <span class="chip bg-color">算法题</span>
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
                             </a>
                         
                     </div>
@@ -459,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-07
+                    2020-05-23
                 </div>
                 
 
@@ -475,97 +471,35 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="820-单词的压缩编码"><a href="#820-单词的压缩编码" class="headerlink" title="820. 单词的压缩编码"></a><a href="https://leetcode-cn.com/problems/short-encoding-of-words/" target="_blank" rel="noopener">820. 单词的压缩编码</a></h1><p>给定一个单词列表，我们将这个列表编码成一个索引字符串 S 与一个索引列表 A。</p>
-<p>例如，如果这个列表是 [“time”, “me”, “bell”]，我们就可以将其表示为 S = “time#bell#” 和 indexes = [0, 2, 5]。</p>
-<p>对于每一个索引，我们可以通过从字符串 S 中索引的位置开始读取字符串，直到 “#” 结束，来恢复我们之前的单词列表。</p>
-<p>那么成功对给定单词列表进行编码的最小字符串长度是多少呢？</p>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/short-encoding-of-words" target="_blank" rel="noopener">https://leetcode-cn.com/problems/short-encoding-of-words</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<pre><code>示例：
+                <h1 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h1><pre class=" language-bash"><code class="language-bash">pip <span class="token function">install</span> execjs</code></pre>
+<h2 id="直接调用"><a href="#直接调用" class="headerlink" title="直接调用"></a>直接调用</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> execjs
 
-输入: words = [&quot;time&quot;, &quot;me&quot;, &quot;bell&quot;]
-输出: 10
-说明: S = &quot;time#bell#&quot; ， indexes = [0, 2, 5] 。
-提示：
-1 &lt;= words.length &lt;= 2000
-1 &lt;= words[i].length &lt;= 7
-每个单词都是小写字母 。
+js <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
+add = function(a,b){
+    return a+b;
+}
+"""</span>
 
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/short-encoding-of-words
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</code></pre><h2 id="方法一-暴力破解"><a href="#方法一-暴力破解" class="headerlink" title="方法一:暴力破解"></a>方法一:暴力破解</h2><pre class=" language-c"><code class="language-c">class Solution <span class="token punctuation">{</span>
-public<span class="token punctuation">:</span>
-    <span class="token keyword">int</span> <span class="token function">minimumLengthEncoding</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>string<span class="token operator">></span><span class="token operator">&amp;</span> words<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        unordered_set<span class="token operator">&lt;</span>string<span class="token operator">></span> <span class="token function">good</span><span class="token punctuation">(</span>words<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> words<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> v<span class="token punctuation">:</span>good<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>v<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                string s <span class="token operator">=</span> v<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                cout<span class="token operator">&lt;&lt;</span>s<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-                good<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> v<span class="token punctuation">:</span>good<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            sum<span class="token operator">+</span><span class="token operator">=</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
-<h2 id="方法二-字典树"><a href="#方法二-字典树" class="headerlink" title="方法二,字典树"></a>方法二,字典树</h2><pre class=" language-c"><code class="language-c">字典树<span class="token punctuation">,</span>倒序插入<span class="token punctuation">,</span>然后遍历树<span class="token punctuation">,</span>判断最后一个节点的长度<span class="token punctuation">,</span>每个叶子节点长度加一的和为答案<span class="token punctuation">.</span>
+ctx <span class="token operator">=</span> execjs<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>js<span class="token punctuation">)</span>
 
-<span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">struct</span> node<span class="token punctuation">{</span>
-    <span class="token keyword">int</span> data<span class="token punctuation">[</span><span class="token number">27</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">26</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>tree<span class="token punctuation">[</span><span class="token number">140000</span><span class="token operator">+</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> <span class="token function">buildtree</span><span class="token punctuation">(</span>string s<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">int</span> p<span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">;</span> i<span class="token operator">>=</span><span class="token number">0</span> <span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">int</span> x <span class="token operator">=</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span><span class="token string">'a'</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>tree<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            tree<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">++</span>cnt<span class="token punctuation">;</span>
-            tree<span class="token punctuation">[</span>cnt<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        p <span class="token operator">=</span> tree<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-bool <span class="token function">check</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">//判断是否是叶子节点</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">26</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>tree<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> false<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> true<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span><span class="token keyword">int</span> ans<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">check</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        sum<span class="token operator">+</span><span class="token operator">=</span><span class="token punctuation">(</span>ans<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">26</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>tree<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token function">dfs</span><span class="token punctuation">(</span>tree<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>ans<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//dfs遍历</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>ctx<span class="token punctuation">.</span>call<span class="token punctuation">(</span><span class="token string">"add"</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  第一个参数为js代码里面的函数名字<span class="token punctuation">,</span>后面的参数是函数参数</code></pre>
+<h2 id="调用js文件"><a href="#调用js文件" class="headerlink" title="调用js文件"></a>调用js文件</h2><pre class=" language-python"><code class="language-python">js<span class="token punctuation">:</span>
+<span class="token triple-quoted-string string">"""
+add = function(a,b){
+    return a+b;
+}
+"""</span>
+<span class="token keyword">import</span> execjs
 
-class Solution <span class="token punctuation">{</span>
-public<span class="token punctuation">:</span>
-    <span class="token keyword">int</span> <span class="token function">minimumLengthEncoding</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span>string<span class="token operator">></span><span class="token operator">&amp;</span> words<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        cnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        tree<span class="token punctuation">[</span>cnt<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> v<span class="token punctuation">:</span>words<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token function">buildtree</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+js_str <span class="token operator">=</span> <span class="token string">""</span>
+<span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"add.js"</span><span class="token punctuation">)</span><span class="token keyword">as</span> f<span class="token punctuation">:</span>
+    js_str <span class="token operator">+=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>js_str<span class="token punctuation">)</span>
+
+a <span class="token operator">=</span> execjs<span class="token punctuation">.</span>compile<span class="token punctuation">(</span>js_str<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>call<span class="token punctuation">(</span><span class="token string">"add"</span><span class="token punctuation">,</span> <span class="token number">545</span><span class="token punctuation">,</span> <span class="token number">4545</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
 
             </div>
             <hr/>
@@ -591,7 +525,7 @@ public<span class="token punctuation">:</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://liuhuaqiang.top/2020/05/07/820.dan-ci-de-ya-suo-bian-ma/">https://liuhuaqiang.top/2020/05/07/820.dan-ci-de-ya-suo-bian-ma/</a>
+                    <a href="https://liuhuaqiang.top/2020/05/23/python-li-diao-yong-js-dai-ma/">https://liuhuaqiang.top/2020/05/23/python-li-diao-yong-js-dai-ma/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -629,12 +563,8 @@ public<span class="token punctuation">:</span>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/leetcode/">
-                                    <span class="chip bg-color">leetcode</span>
-                                </a>
-                            
-                                <a href="/tags/算法题/">
-                                    <span class="chip bg-color">算法题</span>
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
                                 </a>
                             
                         </div>
@@ -802,36 +732,41 @@ public<span class="token punctuation">:</span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/07/55.tiao-yue-you-xi/">
+                <a href="/2020/05/23/python-li-diao-yong-js-dai-ma/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="55. 跳跃游戏">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="python里调用js代码">
                         
-                        <span class="card-title">55. 跳跃游戏</span>
+                        <span class="card-title">python里调用js代码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            55. 跳跃游戏难度中等643
-给定一个非负整数数组，你最初位于数组的第一个位置。
-数组中的每个元素代表你在该位置可以跳跃的最大长度。
-判断你是否能够到达最后一个位置。
-示例 1:
-输入: [2,3,1,1,4]
-输出: true
-解释: 
+                            安装包pip install execjs
+直接调用import execjs
+
+js = """
+add = function(a,b){
+    return a+b;
+}
+"""
+
+ctx = execjs.compile(js)
+
+
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -840,15 +775,12 @@ public<span class="token punctuation">:</span>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
-                    </a>
-                    
-                    <a href="/tags/算法题/">
-                        <span class="chip bg-color">算法题</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
@@ -862,26 +794,34 @@ public<span class="token punctuation">:</span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/07/572.ling-yi-ge-shu-de-zi-shu/">
+                <a href="/2020/05/22/pycharm-lian-jie-dao-yuan-cheng-fu-wu-qi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="572. 另一个树的子树">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Pycharm连接到远程服务器">
                         
-                        <span class="card-title">572. 另一个树的子树</span>
+                        <span class="card-title">Pycharm连接到远程服务器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            572. 另一个树的子树给定两个非空二叉树 s 和 t，检验 s 中是否包含和 t 具有相同结构和节点值的子树。s 的一个子树包括 s 的一个节点和这个节点的所有子孙。s 也可以看做它自身的一棵子树。
-示例 1:给定的树 s:
-     3
+                            连接到SSH
+
+输入对的Ip端口,账号密码就可以连接了,
+需要改一下ssh中文,编码
+
+这样就可以正常显示中文了
+远程连接文件夹项目在本地我新建了一个名字叫做linux的文件夹,来储存服务器上的
+然后点击如图所示
+
+这里选择SFTP
+这里的
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-22
                             </span>
                         <span class="publish-author">
                             
@@ -894,12 +834,16 @@ public<span class="token punctuation">:</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
-                    <a href="/tags/算法题/">
-                        <span class="chip bg-color">算法题</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/学习小技巧/">
+                        <span class="chip bg-color">学习小技巧</span>
                     </a>
                     
                 </div>
