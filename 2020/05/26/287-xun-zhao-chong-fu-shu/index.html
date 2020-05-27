@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="572. 另一个树的子树, 未闻丶死讯的博客">
+    <meta name="keywords" content="287.寻找重复数, 未闻丶死讯的博客">
     <meta name="description" content="菜鸡博客，大佬勿喷">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>572. 另一个树的子树 | 未闻丶死讯的博客</title>
+    <title>287.寻找重复数 | 未闻丶死讯的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">572. 另一个树的子树</h1>
+                    <h1 class="description center-align post-title">287.寻找重复数</h1>
                 </div>
             </div>
         </div>
@@ -459,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-07
+                    2020-05-26
                 </div>
                 
 
@@ -475,57 +475,50 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="572-另一个树的子树"><a href="#572-另一个树的子树" class="headerlink" title="572. 另一个树的子树"></a><a href="https://leetcode-cn.com/problems/subtree-of-another-tree/" target="_blank" rel="noopener">572. 另一个树的子树</a></h4><p>给定两个非空二叉树 s 和 t，检验 s 中是否包含和 t 具有相同结构和节点值的子树。s 的一个子树包括 s 的一个节点和这个节点的所有子孙。s 也可以看做它自身的一棵子树。</p>
-<p>示例 1:<br>给定的树 s:</p>
-<pre><code>     3
-    / \
-   4   5
-  / \
- 1   2</code></pre><p>给定的树 t：</p>
-<pre><code>   4 
-  / \
- 1   2</code></pre><p>返回 true，因为 t 与 s 的一个子树拥有相同的结构和节点值。</p>
-<p>示例 2:<br>给定的树 s：</p>
-<pre><code>     3
-    / \
-   4   5
-  / \
- 1   2
-    /
-   0</code></pre><p>给定的树 t：</p>
-<pre><code>   4
-  / \
- 1   2</code></pre><p>返回 false。</p>
-<p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/subtree-of-another-tree" target="_blank" rel="noopener">https://leetcode-cn.com/problems/subtree-of-another-tree</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
-<pre class=" language-c"><code class="language-c"><span class="token comment" spellcheck="true">/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */</span>
-class Solution <span class="token punctuation">{</span>
-public<span class="token punctuation">:</span>
-    bool <span class="token function">check</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> a<span class="token punctuation">,</span> TreeNode<span class="token operator">*</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token operator">==</span><span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> b<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+                <h4 id="287-寻找重复数"><a href="#287-寻找重复数" class="headerlink" title="287. 寻找重复数"></a><a href="https://leetcode-cn.com/problems/find-the-duplicate-number/" target="_blank" rel="noopener">287. 寻找重复数</a></h4><p>难度中等597</p>
+<p>给定一个包含 <em>n</em> + 1 个整数的数组 <em>nums*，其数字都在 1 到 *n</em> 之间（包括 1 和 <em>n</em>），可知至少存在一个重复的整数。假设只有一个重复的整数，找出这个重复的数。</p>
+<p><strong>示例 1:</strong></p>
+<pre><code>输入: [1,3,4,2,2]
+输出: 2</code></pre><p><strong>示例 2:</strong></p>
+<pre><code>输入: [3,1,3,4,2]
+输出: 3</code></pre><p><strong>说明：</strong></p>
+<ol>
+<li><p><strong>不能</strong>更改原数组（假设数组是只读的）。</p>
+</li>
+<li><p>只能使用额外的 <em>O</em>(1) 的空间。</p>
+</li>
+<li><p>时间复杂度小于 <em>O</em>(<em>n</em>2) 。</p>
+</li>
+<li><p>数组中只有一个重复的数字，但它可能不止重复出现一次。</p>
+<p><img src="https://i.imgur.com/qN1YXyt.gif" alt></p>
+<p><img src="https://i.imgur.com/1fhtLG9.png" alt="Imgur"></p>
+</li>
+</ol>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">findDuplicate</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> l <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> r <span class="token operator">=</span> n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>l<span class="token operator">&lt;</span>r<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;=</span>mid<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    ans<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>ans<span class="token operator">></span>mid<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                r <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                l <span class="token operator">=</span> mid<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            mid <span class="token operator">=</span> <span class="token punctuation">(</span>l<span class="token operator">+</span>r<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token operator">==</span><span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> b<span class="token operator">!=</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token operator">||</span>  <span class="token punctuation">(</span>a<span class="token operator">!=</span><span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> b<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">(</span>a<span class="token operator">-></span>val<span class="token operator">!=</span>b<span class="token operator">-></span>val<span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> false<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token function">check</span><span class="token punctuation">(</span>a<span class="token operator">-></span>left<span class="token punctuation">,</span>b<span class="token operator">-></span>left<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">check</span><span class="token punctuation">(</span>a<span class="token operator">-></span>right<span class="token punctuation">,</span>b<span class="token operator">-></span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> mid<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-
-    bool <span class="token function">dfs</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> a<span class="token punctuation">,</span> TreeNode<span class="token operator">*</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token keyword">return</span> false<span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token function">check</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">dfs</span><span class="token punctuation">(</span>a<span class="token operator">-></span>left<span class="token punctuation">,</span>b<span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token function">dfs</span><span class="token punctuation">(</span>a<span class="token operator">-></span>right<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    bool <span class="token function">isSubtree</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> s<span class="token punctuation">,</span> TreeNode<span class="token operator">*</span> t<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
-        <span class="token keyword">return</span> <span class="token function">dfs</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span>
+</code></pre>
 
             </div>
             <hr/>
@@ -551,7 +544,7 @@ public<span class="token punctuation">:</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://liuhuaqiang.top/2020/05/07/572.ling-yi-ge-shu-de-zi-shu/">https://liuhuaqiang.top/2020/05/07/572.ling-yi-ge-shu-de-zi-shu/</a>
+                    <a href="https://liuhuaqiang.top/2020/05/26/287-xun-zhao-chong-fu-shu/">https://liuhuaqiang.top/2020/05/26/287-xun-zhao-chong-fu-shu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -766,31 +759,30 @@ public<span class="token punctuation">:</span>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/07/55.tiao-yue-you-xi/">
+                <a href="/2020/05/27/974.he-ke-bei-zheng-chu-de-zi-shu-zu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="55. 跳跃游戏">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="974.和可被整除的子数组">
                         
-                        <span class="card-title">55. 跳跃游戏</span>
+                        <span class="card-title">974.和可被整除的子数组</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            55. 跳跃游戏难度中等643
-给定一个非负整数数组，你最初位于数组的第一个位置。
-数组中的每个元素代表你在该位置可以跳跃的最大长度。
-判断你是否能够到达最后一个位置。
-示例 1:
-输入: [2,3,1,1,4]
-输出: true
-解释: 
+                            974. 和可被 K 整除的子数组难度中等80
+给定一个整数数组 A，返回其中元素之和可被 K 整除的（连续、非空）子数组的数目。
+示例：
+输入：A = [4,5,0,-2,-3,1], K = 5
+输出：7
+解释：
+有 7 个子数组满足其
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-27
                         </span>
                         <span class="publish-author">
                             
@@ -822,29 +814,35 @@ public<span class="token punctuation">:</span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/07/83.shan-chu-pai-xu-lian-biao-zhong-de-chong-fu-yuan-su/">
+                <a href="/2020/05/23/python-li-diao-yong-js-dai-ma/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="83. 删除排序链表中的重复元素">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="python里调用js代码">
                         
-                        <span class="card-title">83. 删除排序链表中的重复元素</span>
+                        <span class="card-title">python里调用js代码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            83. 删除排序链表中的重复元素给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。
-示例 1:
-输入: 1-&gt;1-&gt;2
-输出: 1-&gt;2示例 2:
-输入: 1-&gt;1-&gt;2-&gt;3-&gt;3
-输
+                            安装包pip install execjs
+直接调用import execjs
+
+js = """
+add = function(a,b){
+    return a+b;
+}
+"""
+
+ctx = execjs.compile(js)
+
+
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-23
                             </span>
                         <span class="publish-author">
                             
@@ -857,12 +855,8 @@ public<span class="token punctuation">:</span>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
-                    </a>
-                    
-                    <a href="/tags/算法题/">
-                        <span class="chip bg-color">算法题</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
                 </div>
