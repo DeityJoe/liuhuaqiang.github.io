@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="未闻丶死讯的博客" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="未闻丶死讯的博客" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -340,7 +340,7 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/3.jpg)');
+    $('.bg-cover').css('background-image', 'url(/medias/banner/2.jpg)');
 </script>
 
 
@@ -357,6 +357,59 @@
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/05/16/fan-zhuan-lian-biao/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="反转链表">
+                            
+                            <span class="card-title">反转链表</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                反转链表●定义两个指针: pre和cur ; pre在前cur在后。●每次让pre的next指向cur，实现-次局部反转●局部反转完成之后，pre和cur同时往后移动-一个位置●循环上述过程，直至pre到达链表尾部
+
+class Solut
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                anlen123
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/leetcode/">
+                            <span class="chip bg-color">leetcode</span>
+                        </a>
+                        
+                        <a href="/tags/算法题/">
+                            <span class="chip bg-color">算法题</span>
+                        </a>
+                        
+                        <a href="/tags/面试题/">
+                            <span class="chip bg-color">面试题</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -400,6 +453,10 @@
                         
                         <a href="/tags/算法题/">
                             <span class="chip bg-color">算法题</span>
+                        </a>
+                        
+                        <a href="/tags/前缀和/">
+                            <span class="chip bg-color">前缀和</span>
                         </a>
                         
                     </div>
@@ -454,6 +511,10 @@
                         
                         <a href="/tags/算法题/">
                             <span class="chip bg-color">算法题</span>
+                        </a>
+                        
+                        <a href="/tags/面试题/">
+                            <span class="chip bg-color">面试题</span>
                         </a>
                         
                     </div>
@@ -722,55 +783,6 @@ struct node{
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/05/07/1155.zhi-tou-zi-de-n-chong-fang-fa/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="1155. 掷骰子的N种方法">
-                            
-                            <span class="card-title">1155. 掷骰子的N种方法</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1155. 掷骰子的N种方法这里有 d 个一样的骰子，每个骰子上都有 f 个面，分别标号为 1, 2, …, f。
-我们约定：掷骰子的得到总点数为各骰子面朝上的数字的总和。
-如果需要掷出的总点数为 target，请你计算出有多少种不同的组合
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                anlen123
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/leetcode/">
-                            <span class="chip bg-color">leetcode</span>
-                        </a>
-                        
-                        <a href="/tags/算法题/">
-                            <span class="chip bg-color">算法题</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
                     <a href="/2020/05/07/1353.zui-duo-ke-yi-can-jia-de-hui-yi-shu-mu/">
                         <div class="card-image">
                             
@@ -820,25 +832,22 @@ struct node{
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/05/07/1383.zui-da-de-tuan-dui-biao-xian-zhi/">
+                    <a href="/2020/05/07/1155.zhi-tou-zi-de-n-chong-fang-fa/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="1383. 最大的团队表现值">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="1155. 掷骰子的N种方法">
                             
-                            <span class="card-title">1383. 最大的团队表现值</span>
+                            <span class="card-title">1155. 掷骰子的N种方法</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1383. 最大的团队表现值示例 1：
-
-输入：n = 6, speed = [2,10,3,1,5,8], efficiency = [5,4,3,9,7,2], k = 2
-输出：60
-解释：
-我们选择工程师 2（speed=10 且 
+                                1155. 掷骰子的N种方法这里有 d 个一样的骰子，每个骰子上都有 f 个面，分别标号为 1, 2, …, f。
+我们约定：掷骰子的得到总点数为各骰子面朝上的数字的总和。
+如果需要掷出的总点数为 target，请你计算出有多少种不同的组合
                             
                         </div>
                         <div class="publish-info">
