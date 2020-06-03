@@ -493,7 +493,48 @@
 |    |    |    +---------- 月份 (1 - 12) 
 |    |    +--------------- 一个月中的第几天 (1 - 31)
 |    +-------------------- 小时 (0 - 23)
-+------------------------- 分钟 (0 - 59)</code></pre><p>实例</p>
++------------------------- 分钟 (0 - 59)
+
+</code></pre><h2 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h2><p>直接在 vim /etc/crontab 里面修改</p>
+<p>注意,一半是在家目录下进行操作,,如果需要在当前目录需要在.sh里面写好cd 的路径</p>
+<pre class=" language-shell"><code class="language-shell"># For details see man 4 crontabs
+
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name  command to be executed
+*/1 * * * * root /root/xx/a.sh
+0 0 * * * root /root/SexDay/auto_push.sh
+
+
+auto_push.sh  
+
+cd /root/SexDay
+python sex.py
+
+git add *
+git add -A 
+git commit -m "每日100张色图"
+git status
+git push
+
+
+PS : 
+必须要给权限
+chmod 777 auto_push.sh
+必须要给权限
+chmod 777 auto_push.sh
+必须要给权限
+chmod 777 auto_push.sh
+必须要给权限
+chmod 777 auto_push.sh
+必须要给权限
+chmod 777 auto_push.sh</code></pre>
+<p>实例</p>
 <h2 id="每月每天每小时的第-0-分钟执行一次-bin-ls"><a href="#每月每天每小时的第-0-分钟执行一次-bin-ls" class="headerlink" title="每月每天每小时的第 0 分钟执行一次 /bin/ls"></a>每月每天每小时的第 0 分钟执行一次 /bin/ls</h2><pre class=" language-bash"><code class="language-bash">0 * * * * /bin/ls</code></pre>
 <h2 id="在-12-月内-每天的早上-6-点到-12-点，每隔-3-个小时-0-分钟执行一次-usr-bin-backup"><a href="#在-12-月内-每天的早上-6-点到-12-点，每隔-3-个小时-0-分钟执行一次-usr-bin-backup" class="headerlink" title="在 12 月内, 每天的早上 6 点到 12 点，每隔 3 个小时 0 分钟执行一次 /usr/bin/backup"></a>在 12 月内, 每天的早上 6 点到 12 点，每隔 3 个小时 0 分钟执行一次 /usr/bin/backup</h2><pre class=" language-bash"><code class="language-bash">0 6-12/3 * 12 * /usr/bin/backup</code></pre>
 <h2 id="周一到周五每天下午-5-00-寄一封信给-alex-domain-name"><a href="#周一到周五每天下午-5-00-寄一封信给-alex-domain-name" class="headerlink" title="周一到周五每天下午 5:00 寄一封信给 alex@domain.name"></a>周一到周五每天下午 5:00 寄一封信给 <a href="mailto:alex@domain.name" target="_blank" rel="noopener">alex@domain.name</a></h2><pre class=" language-bash"><code class="language-bash">0 17 * * 1-5 mail -s <span class="token string">"hi"</span> alex@domain.name <span class="token operator">&lt;</span> /tmp/maildata</code></pre>

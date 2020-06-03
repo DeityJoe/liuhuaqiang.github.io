@@ -484,24 +484,32 @@
 <p>delete from score where score = 80;</p>
 <h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>select * from score  where name like ‘%刘%’; </p>
 <h2 id="python-连接mysql"><a href="#python-连接mysql" class="headerlink" title="python 连接mysql"></a>python 连接mysql</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pymysql
-<span class="token comment" spellcheck="true">#创建连接</span>
-db <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>db<span class="token operator">=</span><span class="token string">'test'</span><span class="token punctuation">,</span> user<span class="token operator">=</span><span class="token string">'root'</span><span class="token punctuation">,</span> password<span class="token operator">=</span><span class="token string">'123456'</span><span class="token punctuation">,</span> host<span class="token operator">=</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>charset<span class="token operator">=</span><span class="token string">'utf8'</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true">#创建浮标</span>
-cursor <span class="token operator">=</span> db<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># sql = "DELETE FROM `test`.`score` WHERE  `name`='杨川' AND `score`=100 LIMIT 1;"</span>
-<span class="token keyword">try</span> <span class="token punctuation">:</span>
-    sql <span class="token operator">=</span> <span class="token string">"select * from score"</span>
-    cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
-    txt  <span class="token operator">=</span> cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> len<span class="token punctuation">(</span>txt<span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>len<span class="token punctuation">(</span>txt<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">for</span> info <span class="token keyword">in</span> txt <span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span>
+<span class="token keyword">from</span> pymysql<span class="token punctuation">.</span>cursors <span class="token keyword">import</span> DictCursor
+<span class="token comment" spellcheck="true"># 创建数据库连接  localhost等效于127.0.0.1</span>
+conn <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">"127.0.0.1"</span><span class="token punctuation">,</span>port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>user<span class="token operator">=</span><span class="token string">"root"</span><span class="token punctuation">,</span>passwd<span class="token operator">=</span><span class="token string">"123456"</span><span class="token punctuation">,</span>db<span class="token operator">=</span><span class="token string">"test"</span><span class="token punctuation">,</span>charset<span class="token operator">=</span><span class="token string">"utf8"</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 建立游标，指定游标类型，返回字典</span>
+cur <span class="token operator">=</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span>DictCursor<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 操作语句，只查询前两行</span>
+
+<span class="token keyword">try</span><span class="token punctuation">:</span>
+    sql <span class="token operator">=</span> <span class="token triple-quoted-string string">"""select download_url from urls where file_name like '%cat%' limit 20;"""</span>
+    <span class="token comment" spellcheck="true"># 执行sql语句</span>
+    cur<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 获取查询的所有结果</span>
+    res <span class="token operator">=</span> cur<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 打印结果</span>
+    <span class="token comment" spellcheck="true"># print(res)</span>
+    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"xxx.md"</span><span class="token punctuation">,</span><span class="token string">"a+"</span> <span class="token punctuation">)</span><span class="token keyword">as</span> f<span class="token punctuation">:</span>
+        <span class="token keyword">for</span> x <span class="token keyword">in</span> res<span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># print(x['download_url'])</span>
+            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>f<span class="token string">"![]({x['download_url']})\n"</span><span class="token punctuation">)</span>
 <span class="token keyword">except</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"操作失败"</span><span class="token punctuation">)</span>
-cursor<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
-db<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<span class="token keyword">finally</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 关闭游标</span>
+    cur<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># 关闭连接</span>
+    conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p>PS :以后一些操作会记录。<br>23333</p>
 
             </div>
