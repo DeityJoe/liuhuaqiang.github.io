@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="win10修改配置的git账号密码, 未闻丶死讯的博客">
+    <meta name="keywords" content="238.除自身以外数组的乘积, 未闻丶死讯的博客">
     <meta name="description" content="菜鸡博客，大佬勿喷">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>win10修改配置的git账号密码 | 未闻丶死讯的博客</title>
+    <title>238.除自身以外数组的乘积 | 未闻丶死讯的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">win10修改配置的git账号密码</h1>
+                    <h1 class="description center-align post-title">238.除自身以外数组的乘积</h1>
                 </div>
             </div>
         </div>
@@ -439,8 +439,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/学习小技巧/">
-                                <span class="chip bg-color">学习小技巧</span>
+                            <a href="/tags/leetcode/">
+                                <span class="chip bg-color">leetcode</span>
+                            </a>
+                        
+                            <a href="/tags/算法题/">
+                                <span class="chip bg-color">算法题</span>
                             </a>
                         
                     </div>
@@ -455,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-30
+                    2020-06-04
                 </div>
                 
 
@@ -471,8 +475,81 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>打开控制面板<br><img src="https://img-blog.csdnimg.cn/20190415164226970.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lpbnppdHVuNzk0Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>点击用户账户<br><img src="https://img-blog.csdnimg.cn/2019041516430874.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lpbnppdHVuNzk0Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>点击管理windows凭据<br><img src="https://img-blog.csdnimg.cn/20190415164445989.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lpbnppdHVuNzk0Nw==,size_16,color_FFFFFF,t_70" alt></p>
-<p>找到对应的网址，点击删除<br><img src="https://img-blog.csdnimg.cn/20190415164712487.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3lpbnppdHVuNzk0Nw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在继续操作直到再次提示输入git的账号密码</p>
+                <h4 id="238-除自身以外数组的乘积"><a href="#238-除自身以外数组的乘积" class="headerlink" title="238. 除自身以外数组的乘积"></a><a href="https://leetcode-cn.com/problems/product-of-array-except-self/" target="_blank" rel="noopener">238. 除自身以外数组的乘积</a></h4><pre class=" language-bash"><code class="language-bash">给你一个长度为 n 的整数数组 nums，其中 n <span class="token operator">></span> 1，返回输出数组 output ，其中 output<span class="token punctuation">[</span>i<span class="token punctuation">]</span> 等于 nums 中除 nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> 之外其余各元素的乘积。
+
+
+
+示例:
+
+输入: <span class="token punctuation">[</span>1,2,3,4<span class="token punctuation">]</span>
+输出: <span class="token punctuation">[</span>24,12,8,6<span class="token punctuation">]</span>
+
+
+提示：题目数据保证数组之中任意元素的全部前缀元素和后缀（甚至是整个数组）的乘积都在 32 位整数范围内。
+
+说明: 请不要使用除法，且在 O<span class="token punctuation">(</span>n<span class="token punctuation">)</span> 时间复杂度内完成此题。
+
+进阶：
+你可以在常数空间复杂度内完成这个题目吗？（ 出于对空间复杂度分析的目的，输出数组不被视为额外空间。）</code></pre>
+<pre class=" language-c"><code class="language-c">用前后缀和可解决
+    class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">productExceptSelf</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">pre</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">next</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> ret<span class="token punctuation">;</span>
+        pre<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span>nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        next<span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">=</span>nums<span class="token punctuation">[</span>n<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            pre<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> pre<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">*</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span>n<span class="token number">-2</span><span class="token punctuation">;</span>i<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            next<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> next<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> 
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                ret<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>next<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">==</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                ret<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>pre<span class="token punctuation">[</span>n<span class="token number">-2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                ret<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>pre<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">*</span>next<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>进阶</p>
+<p>思路</p>
+<p>尽管上面的方法已经能够很好的解决这个问题，但是空间复杂度并不为常数。</p>
+<p>由于输出数组不算在空间复杂度内，那么我们可以将 L 或 R 数组用输出数组来计算。先把输出数组当作 L 数组来计算，然后再动态构造 R 数组得到结果。让我们来看看基于这个思想的算法。</p>
+<p>算法</p>
+<p>初始化 answer 数组，对于给定索引 i，answer[i] 代表的是 i 左侧所有数字的乘积。<br>构造方式与之前相同，只是我们试图节省空间，先把 answer 作为方法一的 L 数组。<br>这种方法的唯一变化就是我们没有构造 R 数组。而是用一个遍历来跟踪右边元素的乘积。并更新数组 answer[i]=answer[i]<em>Ranswer[i]=answer[i]∗R。然后 RR 更新为 R=R</em>nums[i]R=R∗nums[i]，其中变量 RR 表示的就是索引右侧数字的乘积。</p>
+<pre class=" language-c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">productExceptSelf</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> <span class="token function">ret</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ret<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            ret<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> ret<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">*</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> n<span class="token number">-1</span><span class="token punctuation">;</span>i<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            cout<span class="token operator">&lt;&lt;</span>sum<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">==</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                ret<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>ret<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                ret<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>sum<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                ret<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> ret<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">*</span>sum<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            sum <span class="token operator">*</span><span class="token operator">=</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
@@ -498,7 +575,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://liuhuaqiang.top/2020/04/30/win10-xiu-gai-pei-zhi-de-git-zhang-hao-mi-ma/">https://liuhuaqiang.top/2020/04/30/win10-xiu-gai-pei-zhi-de-git-zhang-hao-mi-ma/</a>
+                    <a href="https://liuhuaqiang.top/2020/06/04/238-chu-zi-shen-yi-wai-shu-zu-de-cheng-ji/">https://liuhuaqiang.top/2020/06/04/238-chu-zi-shen-yi-wai-shu-zu-de-cheng-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -536,8 +613,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/学习小技巧/">
-                                    <span class="chip bg-color">学习小技巧</span>
+                                <a href="/tags/leetcode/">
+                                    <span class="chip bg-color">leetcode</span>
+                                </a>
+                            
+                                <a href="/tags/算法题/">
+                                    <span class="chip bg-color">算法题</span>
                                 </a>
                             
                         </div>
@@ -705,36 +786,95 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/07/zhi-chu-xian-yi-ci-de-shu/">
+                <a href="/2020/06/04/238-chu-zi-shen-yi-wai-shu-zu-de-cheng-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="只出现一次的数">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="238.除自身以外数组的乘积">
                         
-                        <span class="card-title">只出现一次的数</span>
+                        <span class="card-title">238.除自身以外数组的乘积</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            只出现一次的数136. 只出现一次的数字/*
-给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
-输入: [2,2,1]
-输出: 1
-示例 2:
+                            238. 除自身以外数组的乘积给你一个长度为 n 的整数数组 nums，其中 n > 1，返回输出数组 output ，其中 output[i] 等于 nums 中除 nums[i] 之外其余各元素的乘积。
 
-输入: [4,1,2,1,2]
-输出: 
+
+
+示例:
+
+输入: [1,2
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            anlen123
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
+                    </a>
+                    
+                    <a href="/tags/算法题/">
+                        <span class="chip bg-color">算法题</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/06/02/mian-shi-ti-64-qiu-1-2-n/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="面试题64.求1+2+…+n">
+                        
+                        <span class="card-title">面试题64.求1+2+…+n</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            面试题64. 求1+2+…+n求 1+2+...+n ，要求不能使用乘除法、for、while、if、else、switch、case等关键字及条件判断语句（A?B:C）。
+
+
+示例 1：
+
+输入: n = 3
+输出: 6
+示例 2：
+
+输
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -756,56 +896,6 @@
                     
                     <a href="/tags/面试题/">
                         <span class="chip bg-color">面试题</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/04/30/gao-xiao-shi-yong-github-xun-zhao-kai-yuan-xiang-mu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="高效使用Github寻找开源项目">
-                        
-                        <span class="card-title">高效使用Github寻找开源项目</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Git和GitHub什么关系？Git（读音为/gɪt/）是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。
-GitHub是一个面向开源及私有软件项目的托管平台，因为只支持git 作为唯一的版本库格式进行托管，
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-30
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            anlen123
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/学习小技巧/">
-                        <span class="chip bg-color">学习小技巧</span>
-                    </a>
-                    
-                    <a href="/tags/github/">
-                        <span class="chip bg-color">github</span>
                     </a>
                     
                 </div>
