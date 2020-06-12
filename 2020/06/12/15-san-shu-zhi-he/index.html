@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="mysql数据库基本操作学习记录, 未闻丶死讯的博客">
+    <meta name="keywords" content="15.三数之和, 未闻丶死讯的博客">
     <meta name="description" content="菜鸡博客，大佬勿喷">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>mysql数据库基本操作学习记录 | 未闻丶死讯的博客</title>
+    <title>15.三数之和 | 未闻丶死讯的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/26.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">mysql数据库基本操作学习记录</h1>
+                    <h1 class="description center-align post-title">15.三数之和</h1>
                 </div>
             </div>
         </div>
@@ -439,8 +439,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/mysql/">
-                                <span class="chip bg-color">mysql</span>
+                            <a href="/tags/leetcode/">
+                                <span class="chip bg-color">leetcode</span>
+                            </a>
+                        
+                            <a href="/tags/面试题/">
+                                <span class="chip bg-color">面试题</span>
                             </a>
                         
                     </div>
@@ -455,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-31
+                    2020-06-12
                 </div>
                 
 
@@ -471,46 +475,43 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h1><p>安装mysql很简单，这里不多赘述了，网上很多教程。<br><a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">mysql下载地址</a><br><a href="https://gitee.com/anlen123/wenjian/blob/master/HeidiSQL_10.3_64_Portable.zip" target="_blank" rel="noopener">图形界面工具(gitee)</a><br><a href="https://github.com/anlen123/wenjian/blob/master/HeidiSQL_10.3_64_Portable.zip" target="_blank" rel="noopener">图形界面工具(github)</a><br><a href="https://www.bilibili.com/video/av48488984/" target="_blank" rel="noopener">视频教程</a><br><a href="https://blog.jkdev.cn/index.php/archives/176/" target="_blank" rel="noopener">文章</a></p>
-<h1 id="开启mysql"><a href="#开启mysql" class="headerlink" title="开启mysql"></a>开启mysql</h1><p>win+R<br>开启：net start mysql<br>关闭：net stop mysql</p>
-<h1 id="mysql一些简单操作"><a href="#mysql一些简单操作" class="headerlink" title="mysql一些简单操作"></a>mysql一些简单操作</h1><h2 id="显示当前数据库-show-databases"><a href="#显示当前数据库-show-databases" class="headerlink" title="显示当前数据库 show databases;"></a>显示当前数据库 show databases;</h2><p><img src="/2019/12/31/mysql-shu-ju-ku-ji-ben-cao-zuo-xue-xi-ji-lu/1.jpg" alt></p>
-<h2 id="使用一个数据库-use-test"><a href="#使用一个数据库-use-test" class="headerlink" title="使用一个数据库 use test;"></a>使用一个数据库 use test;</h2><p><img src="/2019/12/31/mysql-shu-ju-ku-ji-ben-cao-zuo-xue-xi-ji-lu/2.jpg" alt></p>
-<h2 id="重命名"><a href="#重命名" class="headerlink" title="重命名"></a>重命名</h2><p>– 修改表名<br>rename table old_table to new_table;</p>
-<p>– 或者<br>alter table old_table rename as new_table;</p>
-<p>– 修改列名称<br>alter table table_name<br>change column old_name new_name varchar(255);</p>
-<p>– 修改字段类型<br>alter table table_name<br>modify column column_name varchar(255) default ‘’ COMMENT ‘注释’;</p>
-<h2 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h2><p>insert into score (name,score) values(‘小明’,’80’);</p>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>drop table tb;<br>drop 是直接将表格删除，无法找回。例如删除 user 表：<br>drop table user;<br>truncate （table） tb;<br>truncate 是删除表中所有数据，但不能与where一起使用；<br>TRUNCATE TABLE user;<br>delete from tb (where);<br>delete 也是删除表中数据，但可以与where连用，删除特定行；<br>— 删除表中所有数据<br>delete from user;<br>— 删除指定行<br>delete from user where username =’Tom’;</p>
-<p>delete from score where score = 80;</p>
-<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>select * from score  where name like ‘%刘%’; </p>
-<h2 id="python-连接mysql"><a href="#python-连接mysql" class="headerlink" title="python 连接mysql"></a>python 连接mysql</h2><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> pymysql
-<span class="token keyword">from</span> pymysql<span class="token punctuation">.</span>cursors <span class="token keyword">import</span> DictCursor
-<span class="token comment" spellcheck="true"># 创建数据库连接  localhost等效于127.0.0.1</span>
-conn <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">"127.0.0.1"</span><span class="token punctuation">,</span>port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>user<span class="token operator">=</span><span class="token string">"root"</span><span class="token punctuation">,</span>passwd<span class="token operator">=</span><span class="token string">"123456"</span><span class="token punctuation">,</span>db<span class="token operator">=</span><span class="token string">"test"</span><span class="token punctuation">,</span>charset<span class="token operator">=</span><span class="token string">"utf8"</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 建立游标，指定游标类型，返回字典</span>
-cur <span class="token operator">=</span> conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span>DictCursor<span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># 操作语句，只查询前两行</span>
+                <h4 id="15-三数之和"><a href="#15-三数之和" class="headerlink" title="15. 三数之和"></a><a href="https://leetcode-cn.com/problems/3sum/" target="_blank" rel="noopener">15. 三数之和</a></h4><p>难度中等2215</p>
+<p>给你一个包含 <em>n</em> 个整数的数组 <code>nums</code>，判断 <code>nums</code> 中是否存在三个元素 <em>a，b，c ，*使得 *a + b + c =</em> 0 ？请你找出所有满足条件且不重复的三元组。</p>
+<p><strong>注意：</strong>答案中不可以包含重复的三元组。</p>
+<p><strong>示例：</strong></p>
+<pre><code>给定数组 nums = [-1, 0, 1, 2, -1, -4]，
 
-<span class="token keyword">try</span><span class="token punctuation">:</span>
-    sql <span class="token operator">=</span> <span class="token triple-quoted-string string">"""select download_url from urls where file_name like '%cat%' limit 20;"""</span>
-    <span class="token comment" spellcheck="true"># 执行sql语句</span>
-    cur<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 获取查询的所有结果</span>
-    res <span class="token operator">=</span> cur<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 打印结果</span>
-    <span class="token comment" spellcheck="true"># print(res)</span>
-    <span class="token keyword">with</span> open<span class="token punctuation">(</span><span class="token string">"xxx.md"</span><span class="token punctuation">,</span><span class="token string">"a+"</span> <span class="token punctuation">)</span><span class="token keyword">as</span> f<span class="token punctuation">:</span>
-        <span class="token keyword">for</span> x <span class="token keyword">in</span> res<span class="token punctuation">:</span>
-            <span class="token comment" spellcheck="true"># print(x['download_url'])</span>
-            f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>f<span class="token string">"![]({x['download_url']})\n"</span><span class="token punctuation">)</span>
-<span class="token keyword">except</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"操作失败"</span><span class="token punctuation">)</span>
-<span class="token keyword">finally</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># 关闭游标</span>
-    cur<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># 关闭连接</span>
-    conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<p>PS :以后一些操作会记录。<br>23333</p>
+满足要求的三元组集合为：
+[
+  [-1, 0, 1],
+  [-1, -1, 2]
+]</code></pre><pre class=" language-c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span> <span class="token function">threeSum</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">sort</span><span class="token punctuation">(</span>nums<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>nums<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        set<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span> s<span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">int</span> l <span class="token operator">=</span> i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> r <span class="token operator">=</span> n<span class="token number">-1</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>l<span class="token operator">&lt;</span>r<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span>nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token operator">+</span>nums<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    s<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token punctuation">{</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    l<span class="token operator">++</span><span class="token punctuation">;</span>
+                    r<span class="token operator">--</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span>nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token operator">+</span>nums<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    l<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                    r<span class="token operator">--</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span> <span class="token function">ret</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>s<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+先确定<span class="token punctuation">,</span>第一位数字<span class="token punctuation">,</span><span class="token punctuation">,</span>后面就是求TwoSum的方法<span class="token punctuation">,</span><span class="token punctuation">,</span>双指针<span class="token punctuation">,</span>先用set存<span class="token punctuation">,</span><span class="token punctuation">,</span>最后转换成vector</code></pre>
 
             </div>
             <hr/>
@@ -536,7 +537,7 @@ cur <span class="token operator">=</span> conn<span class="token punctuation">.<
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://liuhuaqiang.top/2019/12/31/mysql-shu-ju-ku-ji-ben-cao-zuo-xue-xi-ji-lu/">https://liuhuaqiang.top/2019/12/31/mysql-shu-ju-ku-ji-ben-cao-zuo-xue-xi-ji-lu/</a>
+                    <a href="https://liuhuaqiang.top/2020/06/12/15-san-shu-zhi-he/">https://liuhuaqiang.top/2020/06/12/15-san-shu-zhi-he/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -574,8 +575,12 @@ cur <span class="token operator">=</span> conn<span class="token punctuation">.<
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/mysql/">
-                                    <span class="chip bg-color">mysql</span>
+                                <a href="/tags/leetcode/">
+                                    <span class="chip bg-color">leetcode</span>
+                                </a>
+                            
+                                <a href="/tags/面试题/">
+                                    <span class="chip bg-color">面试题</span>
                                 </a>
                             
                         </div>
@@ -743,35 +748,32 @@ cur <span class="token operator">=</span> conn<span class="token punctuation">.<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/19/linux-ming-ling-xue-xi/">
+                <a href="/2020/06/12/15-san-shu-zhi-he/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Linux命令学习">
+                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="15.三数之和">
                         
-                        <span class="card-title">Linux命令学习</span>
+                        <span class="card-title">15.三数之和</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            后台运行命令nohup 命令 &amp;
-如:nohup python test.py &amp;
-
-可用ps -e查看   具体看哪个运行可以这么写 
-ps -e|grep xxxx
-如我想看后台的python命令：
-ps -e|grep
+                            15. 三数之和难度中等2215
+给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，*使得 *a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。
+注意：答案中不可以包含重复的三元组
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -780,15 +782,16 @@ ps -e|grep
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
                     </a>
                     
-                    <a href="/tags/学习小技巧/">
-                        <span class="chip bg-color">学习小技巧</span>
+                    <a href="/tags/面试题/">
+                        <span class="chip bg-color">面试题</span>
                     </a>
                     
                 </div>
@@ -802,31 +805,35 @@ ps -e|grep
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/31/vim-de-zi-wo-xiu-yang/">
+                <a href="/2020/06/07/ba-python-jiao-ben-dang-zuo-sh-jiao-ben-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="vim的自我修养">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="把python脚本当作.sh脚本使用">
                         
-                        <span class="card-title">vim的自我修养</span>
+                        <span class="card-title">把python脚本当作.sh脚本使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            更新vim8
-wget https://github.com/vim/vim/archive/v8.1.1766.tar.gz
+                            linux运行python脚本a.py
 
+print("2333")
+需要这样
+python a.py
+但是现在
+首先查找python的位置
+which python : /usr/bin/python
 
-tar -zxvf  v8.1.1766.tar.gz
-
-cd vim-8.1.1766/
-./config
+编辑a.py文件
+在头前加上
+#!
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-31
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-07
                             </span>
                         <span class="publish-author">
                             
@@ -841,6 +848,10 @@ cd vim-8.1.1766/
                     
                     <a href="/tags/学习小技巧/">
                         <span class="chip bg-color">学习小技巧</span>
+                    </a>
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>
