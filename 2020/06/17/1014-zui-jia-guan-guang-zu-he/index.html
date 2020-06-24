@@ -4,7 +4,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="字典树, 未闻丶死讯的博客">
+    <meta name="keywords" content="1014.最佳观光组合, 未闻丶死讯的博客">
     <meta name="description" content="菜鸡博客，大佬勿喷">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>字典树 | 未闻丶死讯的博客</title>
+    <title>1014.最佳观光组合 | 未闻丶死讯的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">字典树</h1>
+                    <h1 class="description center-align post-title">1014.最佳观光组合</h1>
                 </div>
             </div>
         </div>
@@ -443,8 +443,8 @@
                                 <span class="chip bg-color">leetcode</span>
                             </a>
                         
-                            <a href="/tags/算法题/">
-                                <span class="chip bg-color">算法题</span>
+                            <a href="/tags/算法/">
+                                <span class="chip bg-color">算法</span>
                             </a>
                         
                     </div>
@@ -459,7 +459,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-07
+                    2020-06-17
                 </div>
                 
 
@@ -475,62 +475,43 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="字典树"><a href="#字典树" class="headerlink" title="字典树"></a>字典树</h2><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
-using namespace std<span class="token punctuation">;</span>
-<span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token keyword">struct</span> node<span class="token punctuation">{</span>
-    <span class="token keyword">int</span> num<span class="token punctuation">;</span>
-    <span class="token keyword">int</span> data<span class="token punctuation">[</span><span class="token number">27</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">26</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            data<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+                <h4 id="1014-最佳观光组合"><a href="#1014-最佳观光组合" class="headerlink" title="1014. 最佳观光组合"></a><a href="https://leetcode-cn.com/problems/best-sightseeing-pair/" target="_blank" rel="noopener">1014. 最佳观光组合</a></h4><p>难度中等84</p>
+<p>给定正整数数组 <code>A</code>，<code>A[i]</code> 表示第 <code>i</code> 个观光景点的评分，并且两个景点 <code>i</code> 和 <code>j</code> 之间的距离为 <code>j - i</code>。</p>
+<p>一对景点（<code>i &lt; j</code>）组成的观光组合的得分为（<code>A[i] + A[j] + i - j</code>）：景点的评分之和<strong>减去</strong>它们两者之间的距离。</p>
+<p>返回一对观光景点能取得的最高分。</p>
+<p><strong>示例：</strong></p>
+<pre><code>输入：[8,1,5,2,6]
+输出：11
+解释：i = 0, j = 2, A[i] + A[j] + i - j = 8 + 5 + 0 - 2 = 11</code></pre><p><strong>提示：</strong></p>
+<ol>
+<li><p><code>2 &lt;= A.length &lt;= 50000</code></p>
+</li>
+<li><p><code>1 &lt;= A[i] &lt;= 1000</code></p>
+<pre class=" language-c"><code class="language-c">解题思路
+我们考虑从前往后枚举j来统计答案，对于每个观光景点j唁<span class="token punctuation">,</span>我们需要遍历<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>j一<span class="token number">1</span><span class="token punctuation">]</span>的观光景点i来计算组成观光组
+合<span class="token punctuation">(</span>i<span class="token punctuation">,</span>i<span class="token punctuation">)</span>得分的最大值cntj来作为第j个观光景点的值<span class="token punctuation">,</span>那么后的答案无疑就是所有观光景点值的最大值<span class="token punctuation">,</span>即
+maxj<span class="token operator">-</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">.</span>n<span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">{</span>cntj<span class="token punctuation">}</span>。但是枚举j要<span class="token function">O</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>的时间复杂度<span class="token punctuation">,</span>遍历<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>j一<span class="token number">1</span><span class="token punctuation">]</span>的观光景点i也需要<span class="token function">O</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>的时间复杂度<span class="token punctuation">,</span>
+因此该方法总复杂度为<span class="token function">O</span><span class="token punctuation">(</span>n2 <span class="token punctuation">)</span><span class="token punctuation">,</span>不能通过所有测试用例，我们需要进一步优化时间复杂度。
+我们回过头来看得分公式，我们可以将其拆分成A<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span> i和A<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">-</span> j两部分<span class="token punctuation">,</span>这样对于统计景点j答案的时候<span class="token punctuation">,</span>纡
+A<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">-</span> j固定不变的，因此最大化A<span class="token punctuation">[</span>i<span class="token operator">+</span>i<span class="token operator">+</span> A<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">-</span> j的值其实就等价于求<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span>j<span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span>中A<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span>i的最大值mx<span class="token punctuation">,</span>景
+点j的答案即为mx<span class="token operator">+</span> A<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">-</span> j。而mx的值我们只要从前往后枚举j的时候同时维护即可<span class="token punctuation">,</span>这样每次枚举景点j的时
+候，寻找使得得分最大的i就能从<span class="token function">O</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>降至<span class="token function">0</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>的时间复杂度，总时间复杂度就能从<span class="token function">O</span><span class="token punctuation">(</span>n2<span class="token punctuation">)</span>降至<span class="token function">O</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>。
+</code></pre>
+</li>
+</ol>
+<pre class=" language-c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    <span class="token keyword">int</span> <span class="token function">maxScoreSightseeingPair</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> A<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> mx <span class="token operator">=</span> A<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> A<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ans <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span> mx <span class="token operator">+</span> A<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">-</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 边遍历边维护</span>
+            mx <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>mx<span class="token punctuation">,</span> A<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
-        num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>tree<span class="token punctuation">[</span><span class="token number">1010</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-<span class="token keyword">void</span> <span class="token function">buildtree</span><span class="token punctuation">(</span>string s<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">int</span> p <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">int</span> x <span class="token operator">=</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span><span class="token string">'a'</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>tree<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            tree<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">[</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">++</span>cnt<span class="token punctuation">;</span>
-            tree<span class="token punctuation">[</span>cnt<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        p <span class="token operator">=</span> tree<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        tree<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">.</span>num<span class="token operator">++</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">int</span> <span class="token function">quest</span><span class="token punctuation">(</span>string s<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">int</span> p<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">int</span> x <span class="token operator">=</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">-</span><span class="token string">'a'</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>tree<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">==</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        p <span class="token operator">=</span> tree<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">.</span>data<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> tree<span class="token punctuation">[</span>p<span class="token punctuation">]</span><span class="token punctuation">.</span>num<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    tree<span class="token punctuation">[</span>cnt<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> t<span class="token punctuation">;</span>
-    cin<span class="token operator">>></span>t<span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>t<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        string ss<span class="token punctuation">;</span>
-        cin<span class="token operator">>></span>ss<span class="token punctuation">;</span>
-        <span class="token function">buildtree</span><span class="token punctuation">(</span>ss<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    cin<span class="token operator">>></span>t<span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>t<span class="token operator">--</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        string ss<span class="token punctuation">;</span>
-        cin<span class="token operator">>></span>ss<span class="token punctuation">;</span>
-        cout<span class="token operator">&lt;&lt;</span><span class="token function">quest</span><span class="token punctuation">(</span>ss<span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
 
             </div>
             <hr/>
@@ -556,7 +537,7 @@ using namespace std<span class="token punctuation">;</span>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://liuhuaqiang.top/2020/05/07/zi-dian-shu/">https://liuhuaqiang.top/2020/05/07/zi-dian-shu/</a>
+                    <a href="https://liuhuaqiang.top/2020/06/17/1014-zui-jia-guan-guang-zu-he/">https://liuhuaqiang.top/2020/06/17/1014-zui-jia-guan-guang-zu-he/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -598,8 +579,8 @@ using namespace std<span class="token punctuation">;</span>
                                     <span class="chip bg-color">leetcode</span>
                                 </a>
                             
-                                <a href="/tags/算法题/">
-                                    <span class="chip bg-color">算法题</span>
+                                <a href="/tags/算法/">
+                                    <span class="chip bg-color">算法</span>
                                 </a>
                             
                         </div>
@@ -771,25 +752,26 @@ using namespace std<span class="token punctuation">;</span>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/07/1361-yan-zheng-er-cha-shu/">
+                <a href="/2020/06/24/16-zui-jie-jin-de-san-shu-zhi-he/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="1361.验证二叉树">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="16.最接近的三数之和">
                         
-                        <span class="card-title">1361.验证二叉树</span>
+                        <span class="card-title">16.最接近的三数之和</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1361.验证二叉树二叉树上有 n 个节点，按从 0 到 n - 1 编号，其中节点 i 的两个子节点分别是 leftChild[i] 和 rightChild[i]。
-只有 所有 节点能够形成且 只 形成 一颗 有效的二叉树时，返回 tr
+                            16. 最接近的三数之和给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。
+示例：
+输入：nums = 
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-24
                         </span>
                         <span class="publish-author">
                             
@@ -806,8 +788,8 @@ using namespace std<span class="token punctuation">;</span>
                         <span class="chip bg-color">leetcode</span>
                     </a>
                     
-                    <a href="/tags/算法题/">
-                        <span class="chip bg-color">算法题</span>
+                    <a href="/tags/面试题/">
+                        <span class="chip bg-color">面试题</span>
                     </a>
                     
                 </div>
@@ -821,26 +803,26 @@ using namespace std<span class="token punctuation">;</span>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/07/1155.zhi-tou-zi-de-n-chong-fang-fa/">
+                <a href="/2020/06/12/15-san-shu-zhi-he/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="1155. 掷骰子的N种方法">
+                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="15.三数之和">
                         
-                        <span class="card-title">1155. 掷骰子的N种方法</span>
+                        <span class="card-title">15.三数之和</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1155. 掷骰子的N种方法这里有 d 个一样的骰子，每个骰子上都有 f 个面，分别标号为 1, 2, …, f。
-我们约定：掷骰子的得到总点数为各骰子面朝上的数字的总和。
-如果需要掷出的总点数为 target，请你计算出有多少种不同的组合
+                            15. 三数之和难度中等2215
+给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，*使得 *a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。
+注意：答案中不可以包含重复的三元组
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-12
                             </span>
                         <span class="publish-author">
                             
@@ -857,8 +839,8 @@ using namespace std<span class="token punctuation">;</span>
                         <span class="chip bg-color">leetcode</span>
                     </a>
                     
-                    <a href="/tags/算法题/">
-                        <span class="chip bg-color">算法题</span>
+                    <a href="/tags/面试题/">
+                        <span class="chip bg-color">面试题</span>
                     </a>
                     
                 </div>
